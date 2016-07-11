@@ -1,0 +1,18 @@
+{% extends 'gas_dynamics/empty_page.html' %}
+
+{% block 'local_scripts' %}
+    {% load staticfiles %}
+    <script src="{% static 'gas_dynamics/js/project_list.js' %}"></script>
+{% endblock %}
+
+{% block 'body' %}
+    <div class="panel panel-default js-project-list-panel">
+        <div class="panel-heading">
+            {% include 'gas_dynamics/project_list/projects_header.html' %}
+        </div>
+
+        <div class="panel-body js-panel-body">
+            {% include 'gas_dynamics/project_list/projects_body.html' %}
+        </div>
+    </div>
+{% endblock %}

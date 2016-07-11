@@ -1,0 +1,18 @@
+
+div.row.bordered {
+    border: solid 1px;
+    background-color: lightblue;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.top-buffer {
+    margin-top:20px;
+}
+
+.navbar-bottom {
+    margin-bottom: 0px;
+}

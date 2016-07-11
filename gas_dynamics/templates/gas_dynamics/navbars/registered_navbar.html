@@ -1,0 +1,7 @@
+{% extends 'gas_dynamics/navbars/navbar_template.html' %}
+
+{% block 'navbar_content' %}
+    <li><a href="{% url 'gas_dynamics:project_list' user.username%}" class="navbar-right">Projects</a></li>
+    <li><a href="{% url 'gas_dynamics:logout' %}" class="navbar-right">Logout</a></li>
+    <li><p class="navbar-text navbar-right">You are registered as {{ request.user.username }}</p></li>
+{% endblock %}

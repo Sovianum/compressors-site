@@ -1,0 +1,112 @@
+
+{% extends 'gas_dynamics/plot_holder_template.html' %}
+{% load staticfiles %}
+
+{% block plot_header%}
+<nav class="navbar navbar-default navbar-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="js-append-plot-btn" data-host="{{request.build_absolute_uri}}"><a href="#">New plot</a></li>
+            <li class="js-delete-plot-btn"><a href="#">Delete plot</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block plot %}
+<div class="col-md-12 plot-holder-row">
+    <img src="{% static 'gas_dynamics/images/test_plot.png' %}" class="center" height="400 px" width="400 px">
+</div>
+{% endblock %}
+
+{% block plot_label %}
+<div class="col-md-6 col-md-offset-3">
+    <p>Some paragraph</p>
+</div>
+{% endblock %}
+
+{% block plot_setup %}
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menu-collapse">
+            <ul class="list-group">
+                <!-- start image setup -->
+                <li class="list-group-item">
+                    <div>
+                        <a data-toggle="collapse" data-target="#dimension-menu-collapse">Dimension setup</a>
+                        <div class="collapse" id="dimension-menu-collapse">
+                            <form class="form js-image-setup-form">
+                                <div class="form-group">
+                                    <label for="img-width">Image width, px</label>
+                                    <input type="text" id="img-width" name="image_width" class="js-plot-width" value="400">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="img-height">Image height, px</label>
+                                    <input type="text" id="img-height" name="img_height" class="js-plot-height" value="400">
+                                </div>
+
+                                <button type="button" class="btn btn-primary js-resize-plot-btn">Apply</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <!-- finish image setup -->
+
+                <!-- start content setup -->
+                <li class="list-group-item">
+                    <div>
+                        <a role="button" data-toggle="collapse" data-target="#plot-content-menu-collapse">Plot content</a>
+                        <div class="collapse" id="plot-content-menu-collapse">
+                            <form class="form js-content-setup-form" data-host="{{render_image_url}}">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="img-name">Image name</label>
+                                    <input type="text" id="img-name" name="image_name" class="js-plot-name" value="Noname">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stage-number">Stage number</label>
+                                    <select id="stage-number" name="stage-number" class="btn btn-default js-stage-number">
+                                        {% for i in stage_number %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lattice-type">Lattice type</label>
+                                    <select id="lattice-type" name="lattice-type" class="form-control js-lattice-type">
+                                        {% for i in lattice_type %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="h-rel">Relative height</label>
+                                    <input type="text" id="h-rel" name="h-rel" class="form-control js-h_rel" value="0">
+                                </div>
+
+                                <button type="button" class="btn btn-primary js-get-plot-btn">Get plot</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <!-- finish content setup -->
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% if user.is_authenticated %}
+
+<ul class="list-group">
+
+    {% for project in projects %}
+        {% if project.user == user %}
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-0">
+                        <a href="{% url 'gas_dynamics:project_tasks' user.username project.name %}">{{project.name}}</a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button class="close" type="button" id="{{project.name}}" data-toggle="modal"
+                                data-target="#delete-{{project.name}}-modal">&times;</button>
+                    </div>
+                </div>
+            </li>
+
+            <div id="delete-{{project.name}}-modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Delete {{project.name}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete {{project.name}}?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger js-delete-project-btn" project_name="{{project.name}}"
+                                    data-host="{% url 'gas_dynamics:delete_project' user.username project.name %}">Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endif %}
+    {% empty %}
+        <li class="list-group-item"><a>No projects</a></li>
+    {% endfor %}
+
+</ul>
+    {% else %}
+        <h2>Anonimous</h2>
+    {% endif %}

@@ -1,0 +1,103 @@
+
+<div class="collapse" id="profiling-parameters-{{task.name}}">
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            <div class="form-group">
+                <label class="control-label">Velocity law</label>
+                <ul class="list-group">
+                    <li class="list-group-item js-stage-repeating-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Rotor</label>
+                                <select name="rotor_velocity_law" class="form-control js-stage-input">
+                                    <option>Constant velocity circulation</option>
+                                    <option>Constant reactivity</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Stator</label>
+                                <select name="stator_velocity_law" class="form-control js-stage-input">
+                                    <option>Constant velocity circulation</option>
+                                    <option>Constant reactivity</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="form-group">
+                <label class="control-label">Blade profile</label>
+                <ul class="list-group">
+                    <li class="list-group-item js-stage-repeating-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Rotor</label>
+                                <select name="rotor_blade_profile" class="form-control js-stage-input">
+                                    <option>Sub sound</option>
+                                    <option>Trans sound</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Stator</label>
+                                <select name="stator_blade_profile" class="form-control js-stage-input">
+                                    <option>Sub sound</option>
+                                    <option>Trans sound</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="form-group">
+                <label class="control-label">Blade elongation</label>
+                <ul class="list-group">
+                    <li class="list-group-item js-stage-repeating-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Rotor</label>
+                                <input type="text" name="rotor_blade_elongation" class="form-control js-stage-input">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Stator</label>
+                                <input type="text" name="stator_blade_elongation" class="form-control js-stage-input">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="form-group">
+                <label class="control-label">Lattice density</label>
+                <ul class="list-group">
+                    <li class="list-group-item js-stage-repeating-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Rotor</label>
+                                <input type="text" name="rotor_blade_lattice_density" class="form-control js-stage-input">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label js-stage-parameter">Stator</label>
+                                <input type="text" name="stator_blade_lattice_density" class="form-control js-stage-input">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+    </ul>
+</div>
+

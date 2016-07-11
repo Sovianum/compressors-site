@@ -1,0 +1,9 @@
+{% extends 'gas_dynamics/general_page_template.html' %}
+
+{% block 'navbar' %}
+    {% if user.is_authenticated %}
+        {% include 'gas_dynamics/navbars/registered_navbar.html' %}
+    {% else %}
+        {% include 'gas_dynamics/navbars/unregistered_navbar.html' %}
+    {% endif %}
+{% endblock %}

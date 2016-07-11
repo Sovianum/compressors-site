@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="{% static 'gas_dynamics/css/bootstrap.min.css' %}"> -->
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <!-- <script src="{% static 'gas_dynamics/js/jquery-3.0.0.js' %}"></script> -->
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- <script src="{% static 'gas_dynamics/js/bootstrap.min.js' %}"></script> -->
+
+        <script src="{% static 'gas_dynamics/js/plot_page.js' %}"></script>
+        <script src="{% static 'gas_dynamics/js/jquery.cookie.js' %}"></script>
+
+        <link rel="stylesheet" href="{% static 'gas_dynamics/css/plot_page.css' %}">
+    <title>Plot page</title>
+</head>
+
+<body>
+    <div class="container js-global-plot-holder-container" data-host="{{plot_uri}}">
+    </div>
+
+    <!--
+    <div class="container js-btn-container">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <button class="btn-success btn-primary add-plot-btn">Add plot</button>
+            </div>
+        </div>
+    </div>
+    -->
+
+</body>
+</html>

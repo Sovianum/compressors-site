@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'gas_dynamics:main_page' %}">Main page</a></li>
+            {% block 'navbar_content' %}
+            {% endblock %}
+        </ul>
+
+    </div>
+</nav>

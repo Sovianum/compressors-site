@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    {% include 'gas_dynamics/general_links.html' %}
+    {% block 'local_scripts' %}
+    {% endblock %}
+    <title>Compressors</title>
+
+</head>
+<body>
+    <div class="container">
+        {% block 'navbar' %}
+        {% endblock %}
+
+        {% block 'control_panel' %}
+        {% endblock %}
+    </div>
+
+    <div class="container">
+        {% block 'body' %}
+        {% endblock %}
+    </div>
+
+    <div class="container">
+        {% block 'footer' %}
+        {% endblock %}
+    </div>
+</body>
+</html>

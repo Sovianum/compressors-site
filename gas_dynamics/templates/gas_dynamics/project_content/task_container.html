@@ -1,0 +1,11 @@
+<div class="js-task-container" data-delete-task="{url 'gas_dynamics:delete_task'}">
+    <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item">
+                {% include 'gas_dynamics/project_content/single_compressor_template.html' with task=task %}
+            </li>
+        {% empty %}
+            <li class="list-group-item"><a>No tasks available</a></li>
+        {% endfor %}
+    </ul>
+</div>
