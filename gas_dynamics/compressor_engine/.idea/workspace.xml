@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="11de0c68-2844-4ce3-a871-509ac5f92b78" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/Computational part.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/User.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/Workshop.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/artem.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Inventor_data_export-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/data_analysis-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/data_export-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/profiling_list_data_export-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/report_data_export-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/strength_analisys-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/inner_triangle.0006.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/mean_triangle.0006.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/mean_triangle.0007.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/outer_triangle.0006.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_inner_profile.0007.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_mean_profile.0002.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_mean_profile.0003.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_outer_profile.0001.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_outer_profile.0002.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/rotor_outer_profile.0003.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/sheet_1.0012.idw" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/stator_inner_profile.0002.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/stator_inner_profile.0004.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/stator_mean_profile.0001.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/stator_mean_profile.0002.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/OldVersions/stator_outer_profile.0001.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/inner_triangle.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/mean_triangle.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/outer_triangle.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/inner/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/inner/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/inner/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/mean/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/mean/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/mean/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/outer/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/outer/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/rotor/outer/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/inner/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/inner/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/inner/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/mean/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/mean/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/mean/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/outer/mean_line.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/outer/pressure_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/profiles/stator/outer/suction_side.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/rotor_df_in.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/rotor_inner_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/rotor_mean_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/rotor_outer_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/sheet_1.idw" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/stator_inner_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/stator_mean_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/stator_outer_profile.ipt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/models/triangles.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data/triangles/triangles.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Inventor_data_export.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NXObjects.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/_axial_cut_dwg2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/autostop_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/autostop_nut M8.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/autostop_nut.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/axial_cut.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/balance_mass.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/bearing.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/blade.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/blade_holder_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/blade_holder_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/blade_holder_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/blade_rotation_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/bladed_disk_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/bolt_M6 (long).prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/bolt_M6.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/bolt_M8.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_4.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_4_fix.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_bolt_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/disk_bolt_gasket.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/gasket_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/gasket_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/gasket_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/gripping_washer.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/gripping_washer_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/half_bladed_disk_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_part.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_pin.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_shell.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_stator_blade.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_stator_bolt.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inlet_support_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/inner_labirinth.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/kok.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/main_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/main_rotor_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/main_stator_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/mean_part.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/normal_bolt_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outer_labirinth.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outer_shell.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_bearing.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_inner_labirinth.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_outer_labirinth.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_part.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_pin.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_stator_holder.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/outlet_support_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_10.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_11.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_12.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_13.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_14.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_15.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_16.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_17.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_18.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_19.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_20.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_21.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_22.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_23.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_24.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_25.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_26.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_27.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_28.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_29.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_32.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_33.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_34.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_35.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_36.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_4.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_40.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_41.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_42.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_43.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_44.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_5.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_50.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_51.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_52.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_53.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_54.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_55.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_6.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_60.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_61.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_62.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_63.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_64.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_65.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_66.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_7.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_70.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_8.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/part_9.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/prizon_bolt_M8.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/profiles_0.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/profiles_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/profiles_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/profiling_assembly.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_blade_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_blade_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_blade_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_blade_4.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_blade_cut.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_in.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_link.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_profile_0.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_profile_5.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/rotor_profiles_10.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/round_screw_M6.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/shaft.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_blade_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_blade_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_blade_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_blade_4.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_blade_cut.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_holder_1.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_holder_2.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_holder_3.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_profile_0.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_profile_5.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/stator_profiles_10.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/axial_cut/temp_blade_surf.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NX_data/profiling_list/profiling.prt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Untitled.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data_analysis.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data_export.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/axial_cut_points.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blade_wheel_sheet/pressure_side.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blade_wheel_sheet/suction_side.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/inlet_stator.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/rotor/stage_0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/rotor/stage_1.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/rotor/stage_2.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/rotor/stage_3.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/stator/stage_0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/stator/stage_1.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/stator/stage_2.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/blades/stator/stage_3.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/pressure_side_0.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/pressure_side_0.5.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/pressure_side_1.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/suction_side_0.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/suction_side_0.5.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/first_stage_rotor_blade/suction_side_1.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/rotor/0.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/rotor/0.5.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/rotor/1.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/stator/0.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/stator/0.5.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/geometry_data/profiling_list/stator/1.0.exp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/inventor_export.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/Answers" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/Questions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/abstract_thoughts.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/approximate_calculation.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/profiling_list_data_export.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report_data_export.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results/tmp.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/strength_analisys.ipynb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blade_strength.py" afterPath="$PROJECT_DIR$/blade_strength.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compressor_models.py" afterPath="$PROJECT_DIR$/compressor_models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compressor_optimizer.py" afterPath="$PROJECT_DIR$/compressor_optimizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compressor_stage_models.py" afterPath="$PROJECT_DIR$/compressor_stage_models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_extraction.py" afterPath="$PROJECT_DIR$/data_extraction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gases.py" afterPath="$PROJECT_DIR$/gases.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdf.py" afterPath="$PROJECT_DIR$/gdf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/geometry_results.py" afterPath="$PROJECT_DIR$/geometry_results.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/materials.py" afterPath="$PROJECT_DIR$/materials.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mean_radius_calculation.py" afterPath="$PROJECT_DIR$/mean_radius_calculation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/optimal_compressor_search.py" afterPath="$PROJECT_DIR$/optimal_compressor_search.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post_processing.py" afterPath="$PROJECT_DIR$/post_processing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile_shape.py" afterPath="$PROJECT_DIR$/profile_shape.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profilers.py" afterPath="$PROJECT_DIR$/profilers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stage_geometry.py" afterPath="$PROJECT_DIR$/stage_geometry.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start_functions.py" afterPath="$PROJECT_DIR$/start_functions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supporting_blade_profilers.py" afterPath="$PROJECT_DIR$/supporting_blade_profilers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/velocity_laws.py" afterPath="$PROJECT_DIR$/velocity_laws.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/velocity_triangles.py" afterPath="$PROJECT_DIR$/velocity_triangles.py" />
+    </list>
+    <ignored path="compressor_engine.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="compressor_engine" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="2568" />
+    <option name="height" value="1396" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="compressor_engine" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11de0c68-2844-4ce3-a871-509ac5f92b78" name="Default" comment="" />
+      <created>1468231229563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1468231229563</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="-4" width="2568" height="1396" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>
