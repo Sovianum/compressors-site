@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -68,6 +68,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.load_template_source',
+)
 
 WSGI_APPLICATION = 'compressor_site.wsgi.application'
 

@@ -4,25 +4,17 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "compressor_site.settings")
 django.setup()
 from gas_dynamics.models import Project, SingleCompressorTask
+from gas_dynamics.templatetags import project_content_extras
 
 
 if __name__ == '__main__':
-    project = Project.objects.get(name='Project_67')
+    task = SingleCompressorTask.objects.all()[2]
+    context = {'task': task}
+    form_type = 'mean_radius'
+    field_name = 'u_out_1'
 
-    def get_project(task_number):
-        data_1 = {
-            'name': 'test_task_%d' % task_number,
-            'mass_rate': 125,
-            'T_stag_1': 273,
-            'p_stag_1': 1e5,
-            'min_eta_ad': 0.85,
-            'stage_number': 4,
-            'precision': 0.03
-        }
-        task = SingleCompressorTask(project=project, **data_1)
-        task.save()
+    print(project_content_extras.get_form_val(context, form_type, field_name))
 
-    for i in range(10, 30):
-        get_project(i)
+
 
 

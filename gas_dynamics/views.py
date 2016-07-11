@@ -143,7 +143,7 @@ class ProjectTasks(django.views.generic.View):
 
     def get(self, request, username, project_name):
         project = models.Project.objects.get(name=project_name)
-        tasks = models.SingleCompressorTask.objects.all()
+        tasks = models.SingleCompressorTask.objects.filter(project=project)
 
         context = {
             'project': project,
@@ -172,10 +172,13 @@ class AddTask(django.views.generic.View):
             else:
                 error_message += 'Invalid task name.\n'
 
-            context = {
-                'tasks': models.SingleCompressorTask.objects.filter(project=project),
-                'project': project
-            }
+            if not error_message:
+                context = {
+                    'tasks': models.SingleCompressorTask.objects.filter(project=project),
+                    'project': project
+                }
+            else:
+                context = {}
 
             request_context = django.template.RequestContext(request)
             html_content = render_to_string('gas_dynamics/project_content/task_container.html', context, request_context)
@@ -188,57 +191,63 @@ class AddTask(django.views.generic.View):
             raise django.http.BadHeaderError('This the AJAX only url')
 
 
+
 class UpdateTask(django.views.generic.View):
     def post(self, request, username, project_name, task_name):
         if request.is_ajax():
-            data = json.loads(request.POST['data'])
+            user = models.User.objects.get(username=username)
+            project = models.Project.objects.get(user=user, name=project_name)
+            task = models.SingleCompressorTask.objects.get(project=project, name=task_name)
+            task_dict = json.loads(request.POST['data'])
 
-            if data['form_type'] == 'main':
-                return self._process_main_parameters(request, data)
-            elif data['form_type'] == 'mean_radius':
-                return self._process_mean_radius_parameters(request, data)
-            elif data['form_type'] == 'profiling':
-                return self._process_profiling_parameters(request, data)
-            else:
-                return django.http.HttpResponse('Unknown form type')
+            process_results = dict()
+            for form_type in task_dict:
+                data = {
+                    'user': user,
+                    'project': project,
+                    'task': task,
+                    'content': json.loads(task_dict[form_type])
+                }
 
+                process_results[form_type] = self._process_wrapper(request, data, form_type)
+
+            return django.http.JsonResponse(process_results)
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
 
-    def _process_main_parameters(self, request, data):
-        data.pop('form_type')
-        form = forms.MainParametersForm(data)
+    def _process_wrapper(self, request, data, form_type):
+        if form_type == 'main':
+            return self._process_main_data(request, data)
+        elif form_type == 'mean_radius':
+            return self._process_mean_radius_data(request, data)
+        elif form_type == 'profiling':
+            return self._process_profiling_data(request, data)
+        else:
+            raise RuntimeError('Incorrect form type')
+
+    def _process_main_data(self, request, data):
+        return self._process_form_data(request, data, forms.MainParametersForm, models.MainDataPart)
+
+    def _process_mean_radius_data(self, request, data):
+        return self._process_form_data(request, data, forms.MeanRadiusParametersForm, models.MeanRadiusDataPart)
+
+    def _process_profiling_data(self, request, data):
+        return self._process_form_data(request, data, forms.ProfilingParametersForm, models.ProfilingDataPart)
+
+    def _process_form_data(self, request, data, form_class, model_class):
+        form = form_class(data['content'])
+        result = dict()
 
         if form.is_valid():
-            print(form.cleaned_data, '\n\n\n')
-            return django.http.HttpResponse('Responsed')
+            model_class.objects.get_or_create(task=data['task'], defaults=form.cleaned_data)
+
+            result['messages'] = 'Data block saved'
+            result['errors'] = ''
         else:
-            print(form.errors, '\n\n\n')
-            return django.http.HttpResponse(form.errors)
+            result['messages'] = 'Data block not saved'
+            result['errors'] = form.errors
 
-    def _process_form_parameters(self, request, data, form_class, task_class=models.SingleCompressorTask):
-        cleaned_data = self._validate_form(data, form_class)
-
-
-    def _validate_form(self, data, form_class):
-        data.pop('form_type')
-        form = form_class(data)
-
-        if form.is_valid:
-            return form.cleaned_data
-        else:
-            raise RuntimeError(form.errors)
-
-    def _update_model(self, cleaned_data, user, project_name, task_name, task_class=models.SingleCompressorTask):
-        project = models.Project.objects.get(user=user, name=project_name)
-        cleaned_data['project'] = project
-        cleaned_data['name'] = task_name
-
-        task = task_class.objects.get_or_create(name=task_name, project=project)
-
-        for key in cleaned_data:
-            task[key] = cleaned_data[key]
-        task.save()
+        return result
 
 
 class DeleteTask(django.views.generic.View):
@@ -257,7 +266,6 @@ class DeleteTask(django.views.generic.View):
             return render(request, template, context)
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
-
 
 
 @never_cache

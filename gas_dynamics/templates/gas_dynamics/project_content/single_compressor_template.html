@@ -13,28 +13,29 @@
         <ul class="list-group">
 
             <li class="list-group-item" id="main-parameters-holder-{{task.name}}">
-                <form class="form" data-host="{% url 'gas_dynamics:update_task' user.username project.name task.name %}">
+                <form class="form">
                     <a data-toggle="collapse" data-target="#main-parameters-{{task.name}}">Main parameters</a>
                     {% include 'gas_dynamics/project_content/main_parameters.html' with task=task %}
                 </form>
             </li>
 
             <li class="list-group-item" id="mean-radius-parameters-holder-{{task.name}}">
-                <form class="form" data-host="{% url 'gas_dynamics:update_task' user.username project.name task.name %}">
+                <form class="form">
                     <a data-toggle="collapse" data-target="#mean-radius-parameters-{{task.name}}">Mean radius parameters</a>
                     {% include 'gas_dynamics/project_content/mean_radius_parameters.html' with task=task %}
                 </form>
             </li>
 
             <li class="list-group-item" id="profiling-parameters-holder-{{task.name}}">
-                <form class="form" data-host="{% url 'gas_dynamics:update_task' user.username project.name task.name %}">
+                <form class="form">
                     <a data-toggle="collapse" data-target="#profiling-parameters-{{task.name}}">Profiling parameters</a>
                     {% include 'gas_dynamics/project_content/profiling_parameters.html' with task=task %}
                 </form>
             </li>
 
             <li class="list-group-item">
-                <button type="button" class="btn btn-primary">Save task</button>
+                <button type="button" class="btn btn-primary js-update-task"
+                        data-update-task="{% url 'gas_dynamics:update_task' user.username project.name task.name %}">Save task</button>
             </li>
 
         </ul>

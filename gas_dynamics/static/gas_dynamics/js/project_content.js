@@ -115,35 +115,51 @@ function Repeater(caller) {
 }
 
 
-function DataSaver(splitter='__') {
-    this.splitter = splitter
-    
-    this.saveTaskData = function(taskHolder) {
+function DataSaver(caller, splitter='__') {
+    this.splitter = splitter;
+    this._saveBtnClass = '.js-update-task';
+    this._taskHolderClass = '.js-task-holder';
+
+    this.saveData = function() {
+        var result = this._getTaskData(this.taskHolder);
+
+        var url = result['url'];
+        var data = {
+            data: JSON.stringify(result['data'])
+        };
+
+        var success = (data) => {
+            console.log(data);
+
+            /*
+            var message = '';
+            for (key in data){
+                var innerData = data[key];
+                var content = innerData.messages;
+
+                message += key + ': ' + content + '\n';
+            }
+            alert(message);
+            */
+        };
+
+        this._processDataBlock(url, data, success)
+    }
+
+    this._getTaskData = function(taskHolder) {
         var forms = $(taskHolder).find('form');
         var formTypes = ['main', 'mean_radius', 'profiling'];
-        var urls = $.map(forms, function(form) {$(form).attr('data-host')});
 
         var formContents = {};
         for (var i = 0; i != formTypes.length; i++) {
-            formContents[formTypes[i]] = this._customSerialize(form);
+            formContents[formTypes[i]] = this._customSerialize(forms[i]);
         }
 
         var result = {};
-        result['content'] = formContents;
-    }
+        result['data'] = formContents;
+        result['url'] = $(this.updateBtn).attr('data-update-task');
 
-    this.saveDataBlockForm = function(form, formType) {
-        var url = $(form).attr('data-host');
-        var dataContent = this._customSerialize(form, formType)
-        var data = {
-            'data': dataContent,
-        }
-        var successFunction = (response) => {
-            console.log(response);
-        }
-
-        this._processDataBlock(url, data, successFunction);
-
+        return result
     }
 
     this._processDataBlock = function(url, data, success) {
@@ -211,6 +227,9 @@ function DataSaver(splitter='__') {
 
         return words.join(splitter)
     }
+
+    this.taskHolder = $(caller).closest(this._taskHolderClass);
+    this.updateBtn = caller;
 }
 
 
@@ -321,109 +340,6 @@ function TaskAdder(caller) {
 }
 
 
-function TestRepeater() {
-    this.incStage = function() {
-        var stageInput = $('.js-stage-number')[0];
-        var stageNumber = stageInput.value;
-        stageNumber = parseInt(stageNumber);
-
-        if (!Boolean(stageNumber)) {
-            stageNumber = 1;
-        }
-
-        stageNumber += 1;
-        stageInput.value = stageNumber; 
-
-        $(stageInput).trigger('change');    
-    }
-
-    this.test_getStageLabels = function() {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-
-        return rep._getStageLabels(temp);
-
-    }
-
-    this.test_getStageCaptions = function() {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-
-        return rep._getStageCaptions(temp);   
-    }
-
-    this.test_clearContainer = function() {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-        var container = $(temp).parent();
-
-        rep._clearContainer(container);    
-    }
-
-    this.test_renameStageLabels = function(stageNumber=3) {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-
-        return rep._renameStageLabels(temp, stageNumber);  
-
-    }
-
-    this.test_repeatElement = function(stageNumber=3) {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-
-        rep._repeatElement(temp, stageNumber)
-
-    }
-
-    this.test_repeatAll = function(stageNumber=3) {
-        var caller = $('.js-stage-number')[0];
-        var rep = new Repeater(caller);
-
-        var temp = $('.js-stage-repeating-block')[3];
-
-        rep.repeateAll(stageNumber)
-    }
-}
-
-
-function test_classifyData() {
-    var saver = new DataSaver();
-
-    var testOb = {
-        'a': 'a', 
-        'b__1': 'b_1',
-        'b__2': 'b_2'
-    }
-
-    return saver._classifyData(testOb)
-}
-
-function test_customSerialize(form) {
-    var saver = new DataSaver();
-
-    return saver._customSerialize(form)
-}
-
-function test_saveDataBlock(form=undefined) {
-    if (form == undefined) {
-        form = $($('form')[0])
-    }
-    var saver = new DataSaver();
-
-    saver.saveDataBlockForm(form, 'main');
-}
-
 $(document).ready(function() {
     $('body').on('click', '.js-delete-task', function(event) {
         var deleter = new DataDeleter(this);
@@ -439,6 +355,11 @@ $(document).ready(function() {
         event.preventDefault();
         var taskAdder = new TaskAdder(this);
         taskAdder.addTask();
+    })
+
+    $('body').on('click', '.js-update-task', function(event) {
+        var saver = new DataSaver(this);
+        saver.saveData()
     })
 })
 
