@@ -2,6 +2,8 @@ import django.utils.timezone
 import django.forms
 from django.core.validators import RegexValidator
 from . import models
+import demjson
+
 
 class LoginForm(django.forms.Form):
     username = django.forms.CharField()
@@ -39,7 +41,7 @@ class MeanRadiusParametersForm(django.forms.ModelForm):
                   'eta_ad_first', 'eta_ad_last', 'eta_ad_max', 'eta_ad_max_coord',
                   'c_a_rel_first', 'c_a_rel_last',
                   'reactivity_first', 'reactivity_last',
-                  'inlet_alpha']
+                  'inlet_alpha', 'flow_section_type']
 
 
 class ProfilingParametersForm(django.forms.ModelForm):
@@ -49,3 +51,38 @@ class ProfilingParametersForm(django.forms.ModelForm):
                   'rotor_blade_profile', 'stator_blade_profile',
                   'rotor_blade_elongation', 'stator_blade_elongation',
                   'rotor_lattice_density', 'stator_lattice_density']
+
+
+class ListField(django.forms.CharField):
+    def to_python(self, value):
+        if isinstance(value, list):
+            return value
+        elif isinstance(value, str):
+            try:
+                return demjson.decode(value)
+            except demjson.JSONDecodeError:
+                raise TypeError("Value must be of 'list' type or encoded list str: %s" % str(value))
+
+    def validate(self, value):
+        super(ListField, self).validate(str(value))
+
+        for val in value:
+            super(ListField, self).validate(val)
+
+
+class AltProfilingParametersForm(django.forms.ModelForm):
+    class Meta:
+        model = models.ProfilingDataPart
+        exclude = ['task', 'state']
+
+    rotor_velocity_law = ListField(widget=django.forms.Textarea)
+    stator_velocity_law = ListField(widget=django.forms.Textarea)
+
+    rotor_blade_profile = ListField(widget=django.forms.Textarea)
+    stator_blade_profile = ListField(widget=django.forms.Textarea)
+
+    rotor_blade_elongation = ListField(widget=django.forms.Textarea)
+    stator_blade_elongation = ListField(widget=django.forms.Textarea)
+
+    rotor_lattice_density = ListField(widget=django.forms.Textarea)
+    stator_lattice_density = ListField(widget=django.forms.Textarea)

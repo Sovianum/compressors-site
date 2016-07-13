@@ -15,7 +15,24 @@ import time
 from django.contrib.auth import authenticate, login, logout
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+import django.core.exceptions
 import json
+import demjson
+from enum import Enum
+import re
+
+
+class FORM_CLASS(Enum):
+    main = forms.MainParametersForm
+    mean_radius = forms.MeanRadiusParametersForm
+    profiling = forms.ProfilingParametersForm
+    #profiling = forms.AltProfilingParametersForm
+
+
+class MODEL_CLASS(Enum):
+    main = models.MainDataPart
+    mean_radius = models.MeanRadiusDataPart
+    profiling = models.ProfilingDataPart
 
 
 class AuthMixin:
@@ -50,8 +67,6 @@ class Login(django.views.generic.View):
         return render(request, 'gas_dynamics/login.html', context)
 
     def post(self, request):
-        print(request.method)
-
         username = request.POST['username']
         password = request.POST['password']
 
@@ -162,13 +177,17 @@ class AddTask(django.views.generic.View):
 
             error_message = ''
             if task_form.is_valid():
+                user = request.user
+                project = models.Project.objects.get(user=user, name=project_name)
+
                 try:
-                    user = request.user
-                    project = models.Project.objects.get(user=user, name=project_name)
-                    task = models.SingleCompressorTask(project=project, name=task_form.cleaned_data['name'])
+                    task = models.SingleCompressorTask.objects.create(project=project, name=task_form.cleaned_data['name'])
                     task.save()
                 except django.db.IntegrityError as e:
                     error_message += str(e)
+                    print(project, task_form.cleaned_data['name'], '\n\n\n')
+
+
             else:
                 error_message += 'Invalid task name.\n'
 
@@ -189,7 +208,6 @@ class AddTask(django.views.generic.View):
             })
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
-
 
 
 class UpdateTask(django.views.generic.View):
@@ -216,30 +234,25 @@ class UpdateTask(django.views.generic.View):
             raise django.http.BadHeaderError('This the AJAX only url')
 
     def _process_wrapper(self, request, data, form_type):
-        if form_type == 'main':
-            return self._process_main_data(request, data)
-        elif form_type == 'mean_radius':
-            return self._process_mean_radius_data(request, data)
-        elif form_type == 'profiling':
-            return self._process_profiling_data(request, data)
-        else:
-            raise RuntimeError('Incorrect form type')
-
-    def _process_main_data(self, request, data):
-        return self._process_form_data(request, data, forms.MainParametersForm, models.MainDataPart)
-
-    def _process_mean_radius_data(self, request, data):
-        return self._process_form_data(request, data, forms.MeanRadiusParametersForm, models.MeanRadiusDataPart)
-
-    def _process_profiling_data(self, request, data):
-        return self._process_form_data(request, data, forms.ProfilingParametersForm, models.ProfilingDataPart)
+        form_class = FORM_CLASS[form_type].value
+        model_class = MODEL_CLASS[form_type].value
+        return self._process_form_data(request, data, form_class, model_class)
 
     def _process_form_data(self, request, data, form_class, model_class):
         form = form_class(data['content'])
         result = dict()
 
+        for key in data['content']:
+            print('%s: %s (%s)' % (key, data['content'][key], type(data['content'][key])))
+        print('\n\n\n')
+
         if form.is_valid():
-            model_class.objects.get_or_create(task=data['task'], defaults=form.cleaned_data)
+            model, is_created = model_class.objects.get_or_create(task=data['task'], defaults=form.cleaned_data)
+
+            for key in form.cleaned_data:
+                setattr(model, key, form.cleaned_data[key])
+
+            model.save()
 
             result['messages'] = 'Data block saved'
             result['errors'] = ''
@@ -266,6 +279,57 @@ class DeleteTask(django.views.generic.View):
             return render(request, template, context)
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
+
+
+class GetValue(django.views.generic.View):
+
+    def get(self, request, username, project_name, task_name):
+        data = json.loads(request.GET['data'])
+
+        return self.request_dispatcher(username, project_name, task_name, data)
+
+    def request_dispatcher(self, username, project_name, task_name, data):
+        if data['request_type'] == 'get_field_value':
+            return self._get_field_value(username, project_name, task_name, data['request_content'])
+
+    def _get_field_value(self, username, project_name, task_name, data):
+        user = models.User.objects.get(username=username)
+        project = models.Project.objects.get(user=user, name=project_name)
+        task = models.SingleCompressorTask.objects.get(project=project, name=task_name)
+        form_type = data['form_type']
+        field_name = data['field_name']
+
+        return self._get_model_value(task, form_type, field_name)
+
+    def _get_model_value(self, task, form_type, field_name):
+        model_class = MODEL_CLASS[form_type].value
+
+        try:
+            model = model_class.objects.get(task=task)
+        except django.core.exceptions.ObjectDoesNotExist as e:
+            return django.http.HttpResponse('')
+
+        regex = re.compile('.*__[0-9]+$')
+        if regex.match(field_name):
+            field_name, index = field_name.split('__')
+            index = int(index)
+
+            value_list_str = getattr(model, field_name)
+
+            if not value_list_str:
+                return django.http.HttpResponse('')
+
+            value_list = demjson.decode(getattr(model, field_name))
+
+            try:
+                result_value = value_list[index]
+            except IndexError:
+                result_value = ''
+
+            return django.http.HttpResponse(result_value)
+        else:
+            return django.http.HttpResponse(getattr(model, field_name))
+
 
 
 @never_cache

@@ -1,3 +1,4 @@
+{% load project_content_extras %}
 
 <div class="collapse" id="profiling-parameters-{{task.name}}">
     <ul class="list-group">
@@ -6,25 +7,29 @@
             <div class="form-group">
                 <label class="control-label">Velocity law</label>
                 <ul class="list-group">
+
+
                     <li class="list-group-item js-stage-repeating-block">
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="control-label js-stage-parameter">Rotor</label>
+                                <label class="control-label js-stage-parameter">Rotor {{i}}</label>
                                 <select name="rotor_velocity_law" class="form-control js-stage-input">
-                                    <option>Constant velocity circulation</option>
-                                    <option>Constant reactivity</option>
+                                    <option value="gamma_constant">Constant velocity circulation</option>
+                                    <option value="rho_constant">Constant reactivity</option>
                                 </select>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="control-label js-stage-parameter">Stator</label>
+                                <label class="control-label js-stage-parameter">Stator {{i}}</label>
                                 <select name="stator_velocity_law" class="form-control js-stage-input">
-                                    <option>Constant velocity circulation</option>
-                                    <option>Constant reactivity</option>
+                                    <option value="gamma_constant">Constant velocity circulation</option>
+                                    <option value="rho_constant">Constant reactivity</option>
                                 </select>
                             </div>
                         </div>
                     </li>
+
+
                 </ul>
             </div>
         </li>

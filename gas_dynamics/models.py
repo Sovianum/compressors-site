@@ -1,6 +1,35 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+import ast
+
+
+class ListField(models.TextField):
+    __metaclass__ = models.SubfieldBase
+    description = "Stores a python list"
+
+    def __init__(self, *args, **kwargs):
+        super(ListField, self).__init__(*args, **kwargs)
+
+    def to_python(self, value):
+        if not value:
+            value = []
+
+        if isinstance(value, list):
+            return value
+
+        print(value)
+        return ast.literal_eval(value)
+
+    def get_prep_value(self, value):
+        if value is None:
+            return value
+
+        return str(value)
+
+    #def value_to_string(self, obj):
+    #    value = self._get_val_from_obj(obj)
+    #    return self.get_db_prep_value(value)
 
 
 class Project(models.Model):
@@ -32,6 +61,9 @@ class SingleCompressorTask(TaskPrototype):
 
 
 class DataPart(models.Model):
+    def __str__(self):
+        return '%s: %s' % (str(self.task), self.__class__.__name__)
+
     task = models.OneToOneField(SingleCompressorTask, on_delete=models.CASCADE)
     state = models.CharField(max_length=50)
 
@@ -44,7 +76,7 @@ class MainDataPart(DataPart):
     T_stag_1 = models.FloatField()
     p_stag_1 = models.FloatField()
     eta_ad_min = models.FloatField()
-    stage_number = models.IntegerField()
+    stage_number = models.IntegerField(default=1)
     precision = models.FloatField(default=0.03)
 
 
@@ -69,22 +101,21 @@ class MeanRadiusDataPart(DataPart):
     reactivity_last = models.FloatField()
 
     inlet_alpha = models.FloatField(blank=True, null=True)
-    constant_diameter_parameters = models.CharField(max_length=200)
+    flow_section_type = models.CharField(max_length=200)
 
 
 class ProfilingDataPart(DataPart):
-    rotor_velocity_law = models.CharField(max_length=1000)
-    stator_velocity_law = models.CharField(max_length=1000)
+    rotor_velocity_law = ListField()
+    stator_velocity_law = ListField()
 
-    rotor_blade_profile = models.CharField(max_length=1000)
-    stator_blade_profile = models.CharField(max_length=1000)
+    rotor_blade_profile = ListField()
+    stator_blade_profile = ListField()
 
-    rotor_blade_elongation = models.CharField(max_length=1000)
-    stator_blade_elongation = models.CharField(max_length=1000)
+    rotor_blade_elongation = ListField()
+    stator_blade_elongation = ListField()
 
-    rotor_lattice_density = models.CharField(max_length=1000)
-    stator_lattice_density = models.CharField(max_length=1000)
-
+    rotor_lattice_density = ListField()
+    stator_lattice_density = ListField()
 
 
 
