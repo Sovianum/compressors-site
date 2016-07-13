@@ -26,7 +26,6 @@ class FORM_CLASS(Enum):
     main = forms.MainParametersForm
     mean_radius = forms.MeanRadiusParametersForm
     profiling = forms.ProfilingParametersForm
-    #profiling = forms.AltProfilingParametersForm
 
 
 class MODEL_CLASS(Enum):
@@ -244,10 +243,11 @@ class UpdateTask(django.views.generic.View):
 
         for key in data['content']:
             print('%s: %s (%s)' % (key, data['content'][key], type(data['content'][key])))
-        print('\n\n\n')
 
         if form.is_valid():
             model, is_created = model_class.objects.get_or_create(task=data['task'], defaults=form.cleaned_data)
+            print(hasattr(model, 'flow_section_type'))
+            print('\n\n\n')
 
             for key in form.cleaned_data:
                 setattr(model, key, form.cleaned_data[key])

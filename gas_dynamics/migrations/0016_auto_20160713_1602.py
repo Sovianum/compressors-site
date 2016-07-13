@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='ListModel',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('test_field', gas_dynamics.models.ListField()),
+                ('test_field', gas_dynamics.models.ListTextField()),
             ],
         ),
         migrations.AlterField(

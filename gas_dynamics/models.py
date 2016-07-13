@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 import ast
 
 
-class ListField(models.TextField):
+class ListTextField(models.TextField):
     __metaclass__ = models.SubfieldBase
     description = "Stores a python list"
 
     def __init__(self, *args, **kwargs):
-        super(ListField, self).__init__(*args, **kwargs)
+        super(ListTextField, self).__init__(*args, **kwargs)
 
     def to_python(self, value):
         if not value:
@@ -18,7 +18,6 @@ class ListField(models.TextField):
         if isinstance(value, list):
             return value
 
-        print(value)
         return ast.literal_eval(value)
 
     def get_prep_value(self, value):
@@ -27,9 +26,51 @@ class ListField(models.TextField):
 
         return str(value)
 
-    #def value_to_string(self, obj):
-    #    value = self._get_val_from_obj(obj)
-    #    return self.get_db_prep_value(value)
+
+class ListIntField(models.IntegerField):
+    __metaclass__ = models.SubfieldBase
+    description = "Stores a python list"
+
+    def __init__(self, *args, **kwargs):
+        super(ListIntField, self).__init__(*args, **kwargs)
+
+    def to_python(self, value):
+        if not value:
+            value = []
+
+        if isinstance(value, list):
+            return value
+
+        return ast.literal_eval(value)
+
+    def get_prep_value(self, value):
+        if value is None:
+            return value
+
+        return str(value)
+
+
+class ListFloatField(models.IntegerField):
+    __metaclass__ = models.SubfieldBase
+    description = "Stores a python list"
+
+    def __init__(self, *args, **kwargs):
+        super(ListFloatField, self).__init__(*args, **kwargs)
+
+    def to_python(self, value):
+        if not value:
+            value = []
+
+        if isinstance(value, list):
+            return value
+
+        return ast.literal_eval(value)
+
+    def get_prep_value(self, value):
+        if value is None:
+            return value
+
+        return str(value)
 
 
 class Project(models.Model):
@@ -71,7 +112,7 @@ class DataPart(models.Model):
         abstract = True
 
 
-class MainDataPart(DataPart):
+class MainDataPart(DataPart):   # TODO Добавить степень повышения давления
     mass_rate = models.FloatField()
     T_stag_1 = models.FloatField()
     p_stag_1 = models.FloatField()
@@ -101,21 +142,21 @@ class MeanRadiusDataPart(DataPart):
     reactivity_last = models.FloatField()
 
     inlet_alpha = models.FloatField(blank=True, null=True)
-    flow_section_type = models.CharField(max_length=200)
+    flow_section_type = ListTextField()
 
 
 class ProfilingDataPart(DataPart):
-    rotor_velocity_law = ListField()
-    stator_velocity_law = ListField()
+    rotor_velocity_law = ListTextField()
+    stator_velocity_law = ListTextField()
 
-    rotor_blade_profile = ListField()
-    stator_blade_profile = ListField()
+    rotor_blade_profile = ListTextField()
+    stator_blade_profile = ListTextField()
 
-    rotor_blade_elongation = ListField()
-    stator_blade_elongation = ListField()
+    rotor_blade_elongation = ListTextField()
+    stator_blade_elongation = ListTextField()
 
-    rotor_lattice_density = ListField()
-    stator_lattice_density = ListField()
+    rotor_lattice_density = ListTextField()
+    stator_lattice_density = ListTextField()
 
 
 

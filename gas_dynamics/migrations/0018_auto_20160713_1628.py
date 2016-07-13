@@ -21,42 +21,42 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='profilingdatapart',
             name='rotor_blade_elongation',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='rotor_blade_profile',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='rotor_lattice_density',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='rotor_velocity_law',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='stator_blade_elongation',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='stator_blade_profile',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='stator_lattice_density',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='profilingdatapart',
             name='stator_velocity_law',
-            field=gas_dynamics.models.ListField(),
+            field=gas_dynamics.models.ListTextField(),
         ),
         migrations.AlterField(
             model_name='project',

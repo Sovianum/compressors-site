@@ -2,6 +2,7 @@ function DataSaver(caller, splitter='__') {
     this.splitter = splitter;
     this._saveBtnClass = '.js-update-task';
     this._taskHolderClass = '.js-task-holder';
+
     this.saveData = function() {
         var result = this._getTaskData(this.taskHolder);
         var url = result['url'];
@@ -14,6 +15,7 @@ function DataSaver(caller, splitter='__') {
         ;
         this._processDataBlock(url, data, success)
     }
+
     this._getTaskData = function(taskHolder) {
         var forms = $(taskHolder).find('form');
         var formTypes = ['main', 'mean_radius', 'profiling'];
@@ -26,6 +28,7 @@ function DataSaver(caller, splitter='__') {
         result['url'] = $(this.updateBtn).attr('data-update-task');
         return result
     }
+    
     this._processDataBlock = function(url, data, success) {
         $.ajax({
             type: 'POST',
@@ -38,7 +41,14 @@ function DataSaver(caller, splitter='__') {
         });
     }
     this._customSerialize = function(form, formType=undefined) {
-        var arr = $(form).serializeArray();
+        //var arr = $(form).serializeArray();
+        var arr = $.map($(form).find('input, select'), (field) => {
+            var name = field.name;
+            var value = field.value;
+
+            return {name: name, value: value}
+        })
+        
         var keyValuePairs = {};
         for (var i = 0; i != arr.length; i++) {
             var obj = arr[i];
@@ -261,6 +271,8 @@ function Repeater(caller) {
         var localStageNumber = caller.value;
         
         dataGetter._getFieldValue(caller, (dbStageNumber)=>{
+            console.log(dbStageNumber);
+            
             if (isNaN(parseInt(localStageNumber))){
                 if (isNaN(parseInt(dbStageNumber))) {
                     console.log('Stage number must be integer');
@@ -270,8 +282,13 @@ function Repeater(caller) {
             } else {
                 var stageNumber = parseInt(localStageNumber);
             }
-            
 
+            if (!stageNumber) {
+                caller.value = 1;
+                stageNumber = caller.value;
+            }
+            
+            console.log(this.toRepeat);
             for (var i = 0; i != this.toRepeat.length; i++) {
                 this._repeatElement(this.toRepeat[i], stageNumber);
             }
