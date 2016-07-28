@@ -17,5 +17,5 @@ __all__ = [
     'supporting_blade_profilers',
     'velocity_laws',
     'velocity_triangles',
-    'web_interfaces'
+    'web_handle'
 ]

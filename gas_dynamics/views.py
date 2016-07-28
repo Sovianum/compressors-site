@@ -12,12 +12,12 @@ from django.core.urlresolvers import reverse
 from .data_extraction import DebugCompressorHandler
 from django.views.decorators.cache import never_cache
 import time
-from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 import django.core.exceptions
 import json
-import demjson
+import ast
 from enum import Enum
 import re
 
@@ -69,11 +69,13 @@ class Login(django.views.generic.View):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(username=username, password=password)
+        print(username, password)
+
+        user = auth.authenticate(username=username, password=password)
 
         if user is not None:
             if user.is_active:
-                login(request, user)
+                auth.login(request, user)
                 return redirect('gas_dynamics:main_page')
             else:
                 pass
@@ -84,7 +86,7 @@ class Login(django.views.generic.View):
 
 class Logout(django.views.generic.View):
     def get(self, request):
-        logout(request)
+        auth.logout(request)
         return redirect('gas_dynamics:main_page')
 
 
@@ -319,8 +321,7 @@ class GetValue(django.views.generic.View):
             if not value_list_str:
                 return django.http.HttpResponse('')
 
-            value_list = demjson.decode(getattr(model, field_name))
-
+            value_list = getattr(model, field_name)
             try:
                 result_value = value_list[index]
             except IndexError:

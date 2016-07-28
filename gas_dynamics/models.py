@@ -4,73 +4,44 @@ from django.contrib.auth.models import User
 import ast
 
 
-class ListTextField(models.TextField):
-    __metaclass__ = models.SubfieldBase
+class ListField(models.TextField):
     description = "Stores a python list"
 
     def __init__(self, *args, **kwargs):
-        super(ListTextField, self).__init__(*args, **kwargs)
+        super(ListField, self).__init__(*args, **kwargs)
 
-    def to_python(self, value):
+    def from_db_value(self, value, expression, connection, context):
         if not value:
             value = []
 
         if isinstance(value, list):
             return value
+        if isinstance(value, str):
+            result = ast.literal_eval(value)
 
-        return ast.literal_eval(value)
+            if isinstance(result, list):
+                return result
+            elif isinstance(result, int) or isinstance(result, float):
+                return [result]
+
+        raise ValueError('Inappropriate value type: %s (%s)' % (value, type(value)))
 
     def get_prep_value(self, value):
-        if value is None:
-            return value
-
-        return str(value)
-
-
-class ListIntField(models.IntegerField):
-    __metaclass__ = models.SubfieldBase
-    description = "Stores a python list"
-
-    def __init__(self, *args, **kwargs):
-        super(ListIntField, self).__init__(*args, **kwargs)
-
-    def to_python(self, value):
         if not value:
-            value = []
-
+            return value
+        if isinstance(value, int) or isinstance(value, float):
+            return str([value])
         if isinstance(value, list):
-            return value
+            return str(value)
+        if isinstance(value, str):
+            result = ast.literal_eval(value)
 
-        return ast.literal_eval(value)
-
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-
-        return str(value)
-
-
-class ListFloatField(models.IntegerField):
-    __metaclass__ = models.SubfieldBase
-    description = "Stores a python list"
-
-    def __init__(self, *args, **kwargs):
-        super(ListFloatField, self).__init__(*args, **kwargs)
-
-    def to_python(self, value):
-        if not value:
-            value = []
-
-        if isinstance(value, list):
-            return value
-
-        return ast.literal_eval(value)
-
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-
-        return str(value)
+            if isinstance(result, list):
+                return value
+            elif isinstance(result, int) or isinstance(result, float):
+                return '[' + value + ']'
+        else:
+            raise ValueError('Inappropriate value type: %s (%s)' % (value, type(value)))
 
 
 class Project(models.Model):
@@ -112,7 +83,8 @@ class DataPart(models.Model):
         abstract = True
 
 
-class MainDataPart(DataPart):   # TODO Добавить степень повышения давления
+class MainDataPart(DataPart):
+    pi_c = models.FloatField()
     mass_rate = models.FloatField()
     T_stag_1 = models.FloatField()
     p_stag_1 = models.FloatField()
@@ -122,41 +94,44 @@ class MainDataPart(DataPart):   # TODO Добавить степень повы�
 
 
 class MeanRadiusDataPart(DataPart):
-    u_out_1 = models.FloatField()
-    d_rel_1 = models.FloatField()
+    u_out_1 = ListField()
+    d_rel_1 = ListField()
 
-    H_t_rel_first = models.FloatField()
-    H_t_rel_last = models.FloatField()
-    H_t_rel_max = models.FloatField()
-    H_t_rel_max_coord = models.FloatField()
+    H_t_rel_first = ListField()
+    H_t_rel_last = ListField()
+    H_t_rel_max = ListField()
+    H_t_rel_max_coord = ListField()
 
-    eta_ad_first = models.FloatField()
-    eta_ad_last = models.FloatField()
-    eta_ad_max = models.FloatField()
-    eta_ad_max_coord = models.FloatField()
+    eta_ad_first = ListField()
+    eta_ad_last = ListField()
+    eta_ad_max = ListField()
+    eta_ad_max_coord = ListField()
 
-    c_a_rel_first = models.FloatField()
-    c_a_rel_last = models.FloatField()
+    c_a_rel_first = ListField()
+    c_a_rel_last = ListField()
 
-    reactivity_first = models.FloatField()
-    reactivity_last = models.FloatField()
+    reactivity_first = ListField()
+    reactivity_last = ListField()
 
-    inlet_alpha = models.FloatField(blank=True, null=True)
-    flow_section_type = ListTextField()
+    inlet_alpha = ListField(blank=True, default=[90])
+    flow_section_type = ListField()
 
 
 class ProfilingDataPart(DataPart):
-    rotor_velocity_law = ListTextField()
-    stator_velocity_law = ListTextField()
+    rotor_velocity_law = ListField()
+    stator_velocity_law = ListField()
 
-    rotor_blade_profile = ListTextField()
-    stator_blade_profile = ListTextField()
+    rotor_blade_profile = ListField()
+    stator_blade_profile = ListField()
 
-    rotor_blade_elongation = ListTextField()
-    stator_blade_elongation = ListTextField()
+    rotor_blade_elongation = ListField()
+    stator_blade_elongation = ListField()
 
-    rotor_lattice_density = ListTextField()
-    stator_lattice_density = ListTextField()
+    rotor_lattice_density = ListField()
+    stator_lattice_density = ListField()
+
+    rotor_blade_windage = ListField()
+    stator_blade_windage = ListField()
 
 
 

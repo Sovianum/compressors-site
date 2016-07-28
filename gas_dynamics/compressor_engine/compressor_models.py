@@ -58,8 +58,6 @@ class CompressorModel:
         result &= bool(len(self._H_t_rel_list))
         result &= bool(len(self._R_mean_list))
         result &= bool(len(self._c_a_rel_list))
-        result &= bool(len(self._rotor_velocity_law_list))
-        result &= bool(len(self._stator_velocity_law_list))
         result &= (self._inlet_alpha != None)
 
         return result
@@ -70,9 +68,6 @@ class CompressorModel:
         self.first_stage.c_a_rel = self.c_a_rel_list[0]
         self.first_stage.triangle_2.c_a_rel = (self.c_a_rel_list[0] + self.c_a_rel_list[1]) / 2
         self.first_stage.triangle_3.c_a_rel = self.c_a_rel_list[1]
-
-        self.first_stage.rotor_velocity_law = self._rotor_velocity_law_list[0]
-        self.first_stage.stator_velocity_law = self._stator_velocity_law_list[0]
 
         self.first_stage.R_mean = self.R_mean_list[0]
 

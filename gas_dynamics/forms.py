@@ -2,7 +2,7 @@ import django.utils.timezone
 import django.forms
 from django.core.validators import RegexValidator
 from . import models
-import demjson
+import ast
 
 
 class ListField(django.forms.CharField):
@@ -12,7 +12,7 @@ class ListField(django.forms.CharField):
         elif value is None:
             return []
         elif isinstance(value, str):
-            return demjson.decode(value)
+            return ast.literal_eval(value)
         else:
             raise TypeError("Value must be of 'list' type or encoded list str: %s" % str(value))
 
@@ -48,7 +48,7 @@ class AddTaskForm(django.forms.Form):
 class MainParametersForm(django.forms.ModelForm):
     class Meta:
         model = models.MainDataPart
-        fields = ['mass_rate', 'T_stag_1', 'p_stag_1', 'eta_ad_min', 'stage_number', 'precision']
+        fields = ['pi_c', 'mass_rate', 'T_stag_1', 'p_stag_1', 'eta_ad_min', 'stage_number', 'precision']
 
 
 class MeanRadiusParametersForm(django.forms.ModelForm):
@@ -81,12 +81,6 @@ class ProfilingParametersForm(django.forms.ModelForm):
     rotor_lattice_density = ListField(widget=django.forms.Textarea)
     stator_lattice_density = ListField(widget=django.forms.Textarea)
 
-"""
-class OldProfilingParametersForm(django.forms.ModelForm):
-    class Meta:
-        model = models.ProfilingDataPart
-        fields = ['rotor_velocity_law', 'stator_velocity_law',
-                  'rotor_blade_profile', 'stator_blade_profile',
-                  'rotor_blade_elongation', 'stator_blade_elongation',
-                  'rotor_lattice_density', 'stator_lattice_density']
-"""
+    rotor_blade_windage = ListField(widget=django.forms.Textarea)
+    stator_blade_windage = ListField(widget=django.forms.Textarea)
+

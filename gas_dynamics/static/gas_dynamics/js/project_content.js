@@ -40,6 +40,7 @@ function DataSaver(caller, splitter='__') {
             }
         });
     }
+
     this._customSerialize = function(form, formType=undefined) {
         //var arr = $(form).serializeArray();
         var arr = $.map($(form).find('input, select'), (field) => {
@@ -60,6 +61,7 @@ function DataSaver(caller, splitter='__') {
         }
         return JSON.stringify(keyValuePairs)
     }
+
     this._classifyData = function(keyValuePairs) {
         var isCompositeKey = (key)=>{
             var cutKey = this._detachNumber(key, this.splitter);
@@ -80,6 +82,7 @@ function DataSaver(caller, splitter='__') {
         }
         return result
     }
+
     this._detachNumber = function(strProp, splitter) {
         var words = strProp.split(splitter);
         var lastWord = words[words.length - 1];
@@ -88,6 +91,7 @@ function DataSaver(caller, splitter='__') {
         }
         return words.join(splitter)
     }
+
     this.taskHolder = $(caller).closest(this._taskHolderClass);
     this.updateBtn = caller;
 }
@@ -302,38 +306,47 @@ function Repeater(caller) {
         var field = $(caller);
         dataGetter._getFieldValue(field, function(stageNumber) {})
     }
+
     this._getElementGroup = function(repeatingElement, selector) {
         return $(repeatingElement).find(selector)
     }
+
     this._applyToElementGroup = function(repeatingElement, selector, extractor) {
         var elements = this._getElementGroup(repeatingElement, selector);
         return $.map(elements, extractor);
     }
+
     this._getElementGroupAttr = function(repeatingElement, selector, attrName) {
         var elements = this._getElementGroup(repeatingElement, selector);
         return $.map(elements, function(element) {
             return element[attrName]
         });
     }
+
     this._getStageLabels = function(repeatingElement) {
         return this._getElementGroup(repeatingElement, Repeater.stageLabelClass);
     }
+
     this._getStageCaptions = function(repeatingElement) {
         return this._applyToElementGroup(repeatingElement, Repeater.stageLabelClass, function(label) {
             return label.innerHTML
         });
     }
+
     this._getStageInputs = function(repeatingElement) {
         return this._getElementGroup(repeatingElement, Repeater.stageInputClass);
     }
+
     this._getStageInputNames = function(repeatingElement) {
         return this._applyToElementGroup(repeatingElement, Repeater.stageInputClass, function(input) {
             return input.name
         })
     }
+
     this._clearContainer = function(container) {
         $(container).find(Repeater.stageCodeBlockClass).remove()
     }
+
     this._renumerateElementProps = function(repeatingElement, stageNumber, selector, attrName, splitter) {
         function detachNumber(strProp) {
             var words = strProp.split(splitter);
@@ -352,12 +365,15 @@ function Repeater(caller) {
             elements[i][attrName] = cutProp + splitter + stageNumber;
         }
     }
+
     this._renameStageLabels = function(repeatingElement, stageNumber) {
         this._renumerateElementProps(repeatingElement = repeatingElement, stageNumber = stageNumber, selector = Repeater.stageLabelClass, attrName = 'innerHTML', splitter = ' ')
     }
+
     this._renameStageInputs = function(repeatingElement, stageNumber) {
         this._renumerateElementProps(repeatingElement = repeatingElement, stageNumber = stageNumber, selector = Repeater.stageInputClass, attrName = 'name', splitter = '__')
     }
+
     this._repeatElement = function(repeatingElement, stageNumber) {
         var container = $(repeatingElement).parent();
         this._clearContainer(container);
@@ -369,6 +385,7 @@ function Repeater(caller) {
             this._renameStageInputs(lastElement, i);
         }
     }
+
     this.caller = caller;
     this.toRepeat = $(caller).closest(Repeater.taskHolderClass).find(Repeater.stageCodeBlockClass);
 }

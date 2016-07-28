@@ -2,9 +2,8 @@ import numpy as np
 import pandas
 import numpy
 from . import mean_radius_calculation
-import time
+from . import engine_logging
 import os.path
-import matplotlib.pyplot as plt
 
 
 def get_parabolic_shape_function(x1, x2, x_max, y1, y2, y_max):
@@ -81,7 +80,7 @@ class MeanRadiusCompressorOptimizer:
         result *= len(self.R_mean_first)
         result *= len(self.R_mean_last)
 
-        result *= len(self.inlet_alpha)
+        #result *= len(self.inlet_alpha)    TODO Разобраться, как раньше проводилась инициализация
 
         return result
 
@@ -89,13 +88,13 @@ class MeanRadiusCompressorOptimizer:
         return self.get_total_variant_number() > 0
 
     @staticmethod
-    def _get_non_linear_parameter_list(parameter_func_gen, parameter_first, parameter_last, parameter_max, stage_num,
-                                       parameter_max_coord):
+    def _get_non_linear_parameter_value_list(parameter_func_gen, parameter_first, parameter_last, parameter_max, stage_num,
+                                             parameter_max_coord):
         parameter_function = parameter_func_gen(1, stage_num, parameter_max_coord,
                                                 parameter_first, parameter_last, parameter_max)
 
-        parameter_list = [parameter_function(stage_ind) for stage_ind in range(1, stage_num + 1)]
-        return parameter_list
+        parameter_value_list = [parameter_function(stage_ind) for stage_ind in range(1, stage_num + 1)]
+        return parameter_value_list
 
     @staticmethod
     def _get_linear_parameter_list(parameter_first, parameter_last, stage_num):
@@ -103,13 +102,13 @@ class MeanRadiusCompressorOptimizer:
 
     @staticmethod
     def _get_H_t_rel_list(H_t_rel_func_gen, H_t_rel_first, H_t_rel_last, H_t_rel_max, stage_num, H_t_rel_max_coord):
-        return MeanRadiusCompressorOptimizer._get_non_linear_parameter_list(H_t_rel_func_gen, H_t_rel_first, H_t_rel_last,
-                                                                            H_t_rel_max, stage_num, H_t_rel_max_coord)
+        return MeanRadiusCompressorOptimizer._get_non_linear_parameter_value_list(H_t_rel_func_gen, H_t_rel_first, H_t_rel_last,
+                                                                                  H_t_rel_max, stage_num, H_t_rel_max_coord)
 
     @staticmethod
     def _get_eta_ad_list(eta_ad_func_gen, eta_ad_first, eta_ad_last, eta_ad_max, stage_num, eta_ad_max_coord):
-        return MeanRadiusCompressorOptimizer._get_non_linear_parameter_list(eta_ad_func_gen, eta_ad_first, eta_ad_last,
-                                                                            eta_ad_max, stage_num, eta_ad_max_coord)
+        return MeanRadiusCompressorOptimizer._get_non_linear_parameter_value_list(eta_ad_func_gen, eta_ad_first, eta_ad_last,
+                                                                                  eta_ad_max, stage_num, eta_ad_max_coord)
 
     @staticmethod
     def _get_c_a_rel_list(c_a_rel_first, c_a_rel_last, stage_num):
@@ -247,9 +246,11 @@ class MeanRadiusCompressorOptimizer:
                 self.min_eta = 1e10
                 self.min_pi_c = 1e10
 
+                self.logger = engine_logging.CompressorSearchInfo(compressor_validator=self)
+
             def validate(self, compressor):
-                if not self.start_time:
-                    self.start_time = time.time()
+                if not self.logger.started:
+                    self.logger.start()
 
                 pi_c = compressor.pi_stag_compressor()
                 eta_ad = compressor.eta_ad_compressor()
@@ -275,16 +276,8 @@ class MeanRadiusCompressorOptimizer:
                     is_valid = False
 
                 if self.processed_num % frequency == 0:
-                    print('Processed %d/%d. Found %d quasi valid variants. Found %d valid variants.' %
-                          (self.processed_num, self.total_num, self.quasi_valid_num, self.valid_num))
-                    print('Min pi_c = %.3f. Max pi_c = %.3f' % (self.min_pi_c, self.max_pi_c))
-                    print('Min eta_ad = %.3f. Max eta_ad = %.3f' % (self.min_eta, self.max_eta))
+                    self.logger.finish()
 
-
-                    time_left = (time.time() - self.start_time) * \
-                                (self.total_num - self.processed_num) / self.processed_num
-                    print('Time left: %.1f minutes.' % (time_left / 60))
-                    print()
                     self.max_pi_c = 0
                     self.max_eta = 0
                     self.min_eta = 1e10
@@ -294,7 +287,7 @@ class MeanRadiusCompressorOptimizer:
 
         return Validator(frequency)
 
-    def get_variants_df(self, save_dir, file_name, eps=0.01, chunk_size=1000):
+    def get_variants_df(self, save_dir, file_prefix, eps=0.01, chunk_size=1000):
         assert self._is_fully_initialized(), 'Object is not fully initialized.'
 
         index = self._get_index()
@@ -316,7 +309,8 @@ class MeanRadiusCompressorOptimizer:
                     valid_index_list.append(item)
 
             except AssertionError as e:
-                print(e)
+                logger = engine_logging.CaughtErrorsLogger()
+                logger.log()
                 continue
 
             if len(valid_index_list) == chunk_size:
@@ -325,7 +319,7 @@ class MeanRadiusCompressorOptimizer:
                 compressor_variant_info['compressor'] = compressor_list
                 compressor_variant_info['D_out_1'] = [compressor.stages[0].D_out_1 for compressor in compressor_list]
 
-                path = os.path.join(save_dir,  '%s_%d.pkl' % (file_name, file_index))
+                path = os.path.join(save_dir,  '%s_%d.pkl' % (file_prefix, file_index))
 
                 compressor_variant_info.to_pickle(path)
 
@@ -333,7 +327,6 @@ class MeanRadiusCompressorOptimizer:
 
                 valid_index_list = list()
                 compressor_list = list()
-                print('saved ', path)
 
         if len(valid_index_list) > 0:
             compressor_variant_info = self._get_compressor_variants_info(compressor_list,
@@ -341,6 +334,6 @@ class MeanRadiusCompressorOptimizer:
             compressor_variant_info['compressor'] = compressor_list
             compressor_variant_info['D_out_1'] = [compressor.stages[0].D_out_1 for compressor in compressor_list]
 
-            path = os.path.join(save_dir,  '%s_%d.pkl' % (file_name, file_index))
+            path = os.path.join(save_dir,  '%s_%d.pkl' % (file_prefix, file_index))
 
             compressor_variant_info.to_pickle(path)

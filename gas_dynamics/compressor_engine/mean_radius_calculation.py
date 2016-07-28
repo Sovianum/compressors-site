@@ -147,8 +147,7 @@ class MeanRadiusStageSolver:
 
         return stage_model
 
-    def get_next_stage_model(self, stage_class, eta_ad, H_t_rel, R_mean, c_a_rel,
-                             rotor_velocity_law, stator_velocity_law):
+    def get_next_stage_model(self, stage_class, eta_ad, H_t_rel, R_mean, c_a_rel):
         next_stage_model = stage_class()
 
         next_stage_model.G = self.stage_model.G
@@ -163,8 +162,6 @@ class MeanRadiusStageSolver:
         next_stage_model.H_t_rel = H_t_rel
         next_stage_model.R_mean = R_mean
         next_stage_model.c_a_rel = c_a_rel
-        next_stage_model.rotor_velocity_law = rotor_velocity_law
-        next_stage_model.stator_velocity_law = stator_velocity_law
 
         if self.stage_model.k_h <= 0.95:
             next_stage_model.k_h = self.stage_model.k_h
@@ -193,14 +190,10 @@ class MeanRadiusCompressorSolver:
         c_a_rel_list = compressor_model.c_a_rel_list[1:]
         next_c_a_rel_list = list(c_a_rel_list[1:]) + [c_a_rel_list[-1]]
 
-        rotor_velocity_law_list = compressor_model.rotor_velocity_law_list[1:]
-        stator_velocity_law_list = compressor_model.stator_velocity_law_list[1:]
-
         stages.append(self._mean_radius_stage_solver.solve(compressor_model.first_stage, R_mean_list[0],
                                                            H_t_rel_list[0], eps))
 
-        parameter_iterator = zip(stage_class_list, eta_ad_list, H_t_rel_list, R_mean_list, c_a_rel_list,
-                                 rotor_velocity_law_list, stator_velocity_law_list)
+        parameter_iterator = zip(stage_class_list, eta_ad_list, H_t_rel_list, R_mean_list, c_a_rel_list)
         next_stage_parameter_iterator = zip(next_R_mean_list, next_H_t_rel, next_c_a_rel_list)
 
         for parameter_tuple in parameter_iterator:
