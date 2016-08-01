@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.conf import settings
+import os
+import os.path
 import ast
 
 
@@ -62,13 +65,43 @@ class TaskPrototype(models.Model):
 
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
+    is_single = models.BooleanField(default=True)
+
+    mean_radius_ready = models.BooleanField(default=False)
+    profiling_ready = models.BooleanField(default=False)
+
+    def get_profiling_paths(self):
+        assert self.profiling_ready, 'Profiling calculation has not been performed yet'
+
+        return [os.path.join(self.profiling_dir, filename) for filename in os.listdir(self.profiling_dir)]
+
+    def get_mean_radius_paths(self):
+        assert self.mean_radius_ready, 'Mean radius calculation has not been performed yet'
+
+        return [os.path.join(self.mean_radius_dir, filename) for filename in os.listdir(self.mean_radius_dir)]
+
+    @property
+    def mean_radius_dir(self):
+        return os.path.join(self._result_dir, 'mean_radius')
+
+    @property
+    def profiling_dir(self):
+        return os.path.join(self._result_dir, 'profiling')
+
+    @property
+    def _result_dir(self):
+        media_root = settings.MEDIA_ROOT
+        app_name = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
+        user = self.project.user
+
+        return os.path.join(media_root, app_name, user.username, self.project.name, self.name)
 
     class Meta:
         unique_together = (('project', 'name'),)
         abstract = True
 
 
-class SingleCompressorTask(TaskPrototype):
+class Task(TaskPrototype):
     pass
 
 
@@ -76,7 +109,7 @@ class DataPart(models.Model):
     def __str__(self):
         return '%s: %s' % (str(self.task), self.__class__.__name__)
 
-    task = models.OneToOneField(SingleCompressorTask, on_delete=models.CASCADE)
+    task = models.OneToOneField(Task, on_delete=models.CASCADE)
     state = models.CharField(max_length=50)
 
     class Meta:
@@ -132,6 +165,14 @@ class ProfilingDataPart(DataPart):
 
     rotor_blade_windage = ListField()
     stator_blade_windage = ListField()
+
+
+class CalculationResult(models.Model):
+    name = models.FilePathField(path=os.path.join(settings.MEDIA_ROOT, 'gas_dynamics'), recursive=True)
+
+    task = models.OneToOneField(Task,
+                                on_delete=models.CASCADE,
+                                primary_key=True)
 
 
 

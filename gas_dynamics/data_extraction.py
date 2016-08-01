@@ -3,9 +3,12 @@ import os
 import os.path
 from .compressor_engine import post_processing
 from .compressor_engine import geometry_results
-from .compressor_engine import start_functions
 import matplotlib.pyplot as plt
 import re
+
+'''
+    Устаревший файл. Использовался ранее для построения профилей лопатки.
+'''
 
 
 class CompressorHandler:

@@ -282,7 +282,6 @@ class PostProcessor:
         add_stress_labels(profile, ax)
         cls.plot_profile(profile)
 
-
     @classmethod
     def plot_blade(cls, blade):
         fig = plt.figure()
@@ -528,10 +527,3 @@ class PostProcessor:
         y_list = [inlet_point_y, 0, 0, outlet_point_y]
 
         return pd.DataFrame({'x': x_list, 'y': y_list})
-
-
-
-
-
-
-

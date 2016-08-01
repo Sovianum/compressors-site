@@ -287,8 +287,12 @@ class MeanRadiusCompressorOptimizer:
 
         return Validator(frequency)
 
-    def get_variants_df(self, save_dir, file_prefix, eps=0.01, chunk_size=1000):
+    def get_compressor_df_generator(self, eps=0.01, chunk_size=1000):
         assert self._is_fully_initialized(), 'Object is not fully initialized.'
+
+        def extend_compressor_info_df(compressor_info_df, compressor_list):
+            compressor_info_df['compressor'] = compressor_list
+            compressor_info_df['D_out_1'] = [compressor.stages[0].D_out_1 for compressor in compressor_list]
 
         index = self._get_index()
 
@@ -296,34 +300,28 @@ class MeanRadiusCompressorOptimizer:
         valid_index_list = list()
 
         validator = self._get_validator()
-        file_index = 1
 
-        for item in index:
+        for init_tuple in index:
             try:
-                compressor = self._get_compressor_model(*item)
+                compressor = self._get_compressor_model(*init_tuple)
 
                 self.compressor_solver.solve(compressor, eps)
 
                 if validator.validate(compressor):
                     compressor_list.append(compressor)
-                    valid_index_list.append(item)
+                    valid_index_list.append(init_tuple)
 
             except AssertionError as e:
-                logger = engine_logging.CaughtErrorsLogger()
+                logger = engine_logging.CaughtErrorsLogger(e)
                 logger.log()
                 continue
 
             if len(valid_index_list) == chunk_size:
                 compressor_variant_info = self._get_compressor_variants_info(compressor_list,
                                                                              valid_index_list, index.names)
-                compressor_variant_info['compressor'] = compressor_list
-                compressor_variant_info['D_out_1'] = [compressor.stages[0].D_out_1 for compressor in compressor_list]
+                extend_compressor_info_df(compressor_variant_info, compressor_list)
 
-                path = os.path.join(save_dir,  '%s_%d.pkl' % (file_prefix, file_index))
-
-                compressor_variant_info.to_pickle(path)
-
-                file_index += 1
+                yield compressor_variant_info
 
                 valid_index_list = list()
                 compressor_list = list()
@@ -331,9 +329,6 @@ class MeanRadiusCompressorOptimizer:
         if len(valid_index_list) > 0:
             compressor_variant_info = self._get_compressor_variants_info(compressor_list,
                                                                              valid_index_list, index.names)
-            compressor_variant_info['compressor'] = compressor_list
-            compressor_variant_info['D_out_1'] = [compressor.stages[0].D_out_1 for compressor in compressor_list]
+            extend_compressor_info_df(compressor_variant_info, compressor_list)
 
-            path = os.path.join(save_dir,  '%s_%d.pkl' % (file_prefix, file_index))
-
-            compressor_variant_info.to_pickle(path)
+            yield compressor_variant_info

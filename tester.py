@@ -4,31 +4,45 @@ import os.path
 import json
 import ast
 import pandas as pd
-from gas_dynamics.compressor_engine.web_handle import *
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "compressor_site.settings")
 django.setup()
+
+from gas_dynamics.compressor_engine_handle import *
 from gas_dynamics import forms
 from gas_dynamics import models
+from django.conf import settings
+from django.core.files import File
+import gas_dynamics.models
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+import pickle
 
 
-full_task = models.SingleCompressorTask.objects.get(name='initialized_task')
+def test_tasker():
+    full_task = models.Task.objects.get(name='initialized_task')
 
-main_data_model = models.MainDataPart.objects.get(task=full_task)
-mean_radius_data_model = models.MeanRadiusDataPart.objects.get(task=full_task)
-profiling_data_model = models.ProfilingDataPart.objects.get(task=full_task)
+    tasker = CompressorSolver(full_task)
+    
+    tasker.calculate_mean_radius()
+    tasker.do_profiling()
 
-main = MainDataBlock(main_data_model)
-mean_radius = MeanRadiusDataBlock(mean_radius_data_model)
-profiling = ProfilingDataBlock(profiling_data_model)
 
-tasker = SolverTaskCreator(main, mean_radius, profiling)
+def test_file_storage():
+    #temp_model = gas_dynamics.models.FileModel.objects.create(name='temp')
+    path_to_file = os.path.join(settings.MEDIA_ROOT, 'temp_dir', 'some_file.pkl')
+    obj = {
+        'a': 1,
+        'b': 2,
+    }
+    file = ContentFile(pickle.dumps(obj))
+    path = default_storage.save(path_to_file, file)
+    print(path)
 
-data_dir = os.path.join(os.getcwd(), 'gas_dynamics', 'results', 'test_dir')
-tasker.calculate_mean_radius(data_dir)
-tasker.do_profiling(data_dir, data_dir)
-
+test_tasker()
 #print(pd.read_pickle(os.path.join(data_dir, 'profiling_file_0.pkl')))
+
+
 
 
 

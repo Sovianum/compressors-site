@@ -20,6 +20,7 @@ import json
 import ast
 from enum import Enum
 import re
+from . import compressor_engine_handle
 
 
 class FORM_CLASS(Enum):
@@ -159,7 +160,9 @@ class ProjectTasks(django.views.generic.View):
 
     def get(self, request, username, project_name):
         project = models.Project.objects.get(name=project_name)
-        tasks = models.SingleCompressorTask.objects.filter(project=project)
+        tasks = models.Task.objects.filter(project=project)
+
+        print('Here', models.Task.objects.all(),  '\n\n\n')
 
         context = {
             'project': project,
@@ -180,21 +183,18 @@ class AddTask(django.views.generic.View):
             if task_form.is_valid():
                 user = request.user
                 project = models.Project.objects.get(user=user, name=project_name)
+                task_name = task_form.cleaned_data['name']
 
                 try:
-                    task = models.SingleCompressorTask.objects.create(project=project, name=task_form.cleaned_data['name'])
-                    task.save()
+                    self._create_task(project, task_name)
                 except django.db.IntegrityError as e:
                     error_message += str(e)
-                    print(project, task_form.cleaned_data['name'], '\n\n\n')
-
-
             else:
                 error_message += 'Invalid task name.\n'
 
             if not error_message:
                 context = {
-                    'tasks': models.SingleCompressorTask.objects.filter(project=project),
+                    'tasks': models.Task.objects.filter(project=project),
                     'project': project
                 }
             else:
@@ -210,13 +210,17 @@ class AddTask(django.views.generic.View):
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
 
+    def _create_task(self, project, task_name):
+        task = models.Task.objects.create(project=project, name=task_name)
+        task.save()
+
 
 class UpdateTask(django.views.generic.View):
     def post(self, request, username, project_name, task_name):
         if request.is_ajax():
             user = models.User.objects.get(username=username)
             project = models.Project.objects.get(user=user, name=project_name)
-            task = models.SingleCompressorTask.objects.get(project=project, name=task_name)
+            task = models.Task.objects.get(project=project, name=task_name)
             task_dict = json.loads(request.POST['data'])
 
             process_results = dict()
@@ -265,17 +269,37 @@ class UpdateTask(django.views.generic.View):
         return result
 
 
+class SolveTask(django.views.generic.View):
+    SOLVER_FUNC = {
+        'mean_radius': lambda solver: solver.calculate_mean_radius,
+        'profiling': lambda solver: solver.do_profiling,
+        'both': lambda solver: lambda: [method() for method in (solver.calculate_mean_radius, solver.do_profiling)]
+    }
+
+    def post(self, request, username, project_name, task_name):
+        user = models.User.objects.get(username=username)
+        project = models.Project.objects.get(user=user, name=project_name)
+        task = models.Task.objects.get(project=project, name=task_name)
+        solver = compressor_engine_handle.CompressorSolver(task)
+
+    @classmethod
+    def _calculate(cls, solver, calc_type):
+        cls.SOLVER_FUNC[calc_type](solver)()
+
+
+
+
 class DeleteTask(django.views.generic.View):
     def post(self, request, username, project_name, task_name):
         if request.is_ajax():
             user = models.User.objects.get(username=username)
             project = models.Project.objects.get(user=user, name=project_name)
-            task = models.SingleCompressorTask.objects.get(project=project, name=task_name)
+            task = models.Task.objects.get(project=project, name=task_name)
             task.delete()
 
             template = 'gas_dynamics/project_content/task_container.html'
             context = {
-                'tasks': models.SingleCompressorTask.objects.filter(project=project),
+                'tasks': models.Task.objects.filter(project=project),
                 'project': project
             }
             return render(request, template, context)
@@ -293,11 +317,14 @@ class GetValue(django.views.generic.View):
     def request_dispatcher(self, username, project_name, task_name, data):
         if data['request_type'] == 'get_field_value':
             return self._get_field_value(username, project_name, task_name, data['request_content'])
+        else:
+            raise RuntimeError('Invalid request type. request_type: %(req_type)s. get_field_value required' %
+                               {'req_type': data['request_type']})
 
     def _get_field_value(self, username, project_name, task_name, data):
         user = models.User.objects.get(username=username)
         project = models.Project.objects.get(user=user, name=project_name)
-        task = models.SingleCompressorTask.objects.get(project=project, name=task_name)
+        task = models.Task.objects.get(project=project, name=task_name)
         form_type = data['form_type']
         field_name = data['field_name']
 
@@ -330,6 +357,8 @@ class GetValue(django.views.generic.View):
             return django.http.HttpResponse(result_value)
         else:
             return django.http.HttpResponse(getattr(model, field_name))
+
+
 
 
 

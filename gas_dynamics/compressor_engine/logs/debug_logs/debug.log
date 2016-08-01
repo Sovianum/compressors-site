@@ -1,6 +1,22 @@
-2016-07-28 21:26:51,881__profiling__INFO__engine_logging.py__82__Profiled 1 of 1.
-2016-07-28 21:26:51,882__profiling__INFO__engine_logging.py__82__Time took: 0.0074
-2016-07-28 21:40:52,744__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
-2016-07-28 21:40:52,744__profiling__INFO__engine_logging.py__88__Time took: 0.0074
-2016-07-28 21:40:57,901__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
-2016-07-28 21:40:57,902__profiling__INFO__engine_logging.py__88__Time took: 0.0073
+2016-07-30 15:07:23,770__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/User/Project/initialized_task/profiling'
+2016-07-30 15:08:18,817__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/User/Project/initialized_task/profiling'
+2016-07-30 15:08:18,825__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
+2016-07-30 15:08:18,825__profiling__INFO__engine_logging.py__88__Time took: 0.0076
+2016-07-30 15:14:15,191__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/mean_radius'
+2016-07-30 15:14:15,236__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/profiling'
+2016-07-30 15:14:15,246__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
+2016-07-30 15:14:15,246__profiling__INFO__engine_logging.py__88__Time took: 0.0088
+2016-07-30 15:30:08,403__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/User/Project/initialized_task/mean_radius'
+2016-07-30 15:31:05,488__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/User/Project/initialized_task/mean_radius'
+2016-07-30 15:33:01,373__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
+2016-07-30 15:33:01,373__profiling__INFO__engine_logging.py__88__Time took: 0.0077
+2016-07-30 15:33:10,926__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/mean_radius'
+2016-07-30 15:33:10,969__caught_errors__ERROR__engine_logging.py__85__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/profiling'
+2016-07-30 15:33:10,977__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
+2016-07-30 15:33:10,978__profiling__INFO__engine_logging.py__88__Time took: 0.0079
+2016-07-30 15:52:57,145__profiling__INFO__engine_logging.py__88__Profiled 1 of 1.
+2016-07-30 15:52:57,146__profiling__INFO__engine_logging.py__88__Time took: 0.0142
+2016-08-01 10:22:37,793__profiling__DEBUG__engine_logging.py__92__Profiled 1 of 1.
+2016-08-01 10:22:37,794__profiling__DEBUG__engine_logging.py__92__Time took: 0.0138
+2016-08-01 10:25:39,478__default_logger__INFO__engine_logging.py__109__Valid solutions not found
+2016-08-01 10:25:39,488__default_logger__ERROR__engine_logging.py__109__Profiling called on empty directory

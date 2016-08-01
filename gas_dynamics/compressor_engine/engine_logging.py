@@ -33,6 +33,12 @@ SETUP = {
   },
 
   'loggers': {
+    'default_logger': {
+      'level': 'DEBUG',
+      'handlers': ['console_handler', 'file_handler'],
+      'propagate': False,
+    },
+
     'compressor_search': {
       'level': 'DEBUG',
       'handlers': ['console_handler', 'file_handler'],
@@ -63,8 +69,12 @@ logging.config.dictConfig(SETUP)
 
 class DebugLogger:
     logger_name = None
+    default_level = logging.WARNING
 
-    def __init__(self, level=logging.DEBUG, **kwargs):
+    def __init__(self, level=None, **kwargs):
+        if level is None:
+            level = self.default_level
+
         if self.logger_name is None:
             raise RuntimeError('Logger name not assigned')
 
@@ -80,7 +90,7 @@ class DebugLogger:
     def log(self):
         obj = self._get_message()
 
-        if not hasattr(obj, '__iter__'):
+        if not hasattr(obj, '__iter__') or type(obj) == str:
             message = obj
             self._logger.log(level=self.level, msg=message)
         else:
@@ -93,11 +103,26 @@ class DebugLogger:
 
 
 class SimpleDebugLogger(DebugLogger):
-    pass
+    logger_name = 'default_logger'
+
+    def custom_log(self, lvl, msg, *args, **kwargs):
+        return self._logger.log(lvl, msg, *args, **kwargs)
+
+    @classmethod
+    def quick_log(cls, *args, **kwargs):
+        logger = cls(*args, **kwargs)
+        logger.log()
+
+    @classmethod
+    def quick_custom_log(cls, lvl, msg, *args, **kwargs):
+        logger = cls()
+        logger.custom_log(lvl, msg, *args, **kwargs)
 
 
 class TimeDebugLogger(DebugLogger):
-    def __init__(self, level=logging.DEBUG, **kwargs):
+    default_level = logging.DEBUG
+
+    def __init__(self, level=None, **kwargs):
         DebugLogger.__init__(self, level, **kwargs)
         self.started = False
         self.time = None
@@ -115,16 +140,23 @@ class TimeDebugLogger(DebugLogger):
 
 class CaughtErrorsLogger(SimpleDebugLogger):
     logger_name = 'caught_errors'
+    default_level = logging.ERROR
+
+    def __init__(self, exception=None):
+        super(CaughtErrorsLogger, self).__init__()
+
+        self.exception = exception
 
     def _get_message(self):
-        return 'Impossible geometry encountered'
+        return str(self.exception)
 
 
 class CompressorSearchInfo(TimeDebugLogger):
     logger_name = 'compressor_search'
+    default_level = logging.INFO
 
     def __init__(self, **kwargs):
-        TimeDebugLogger.__init__(self, logging.INFO, **kwargs)
+        TimeDebugLogger.__init__(self, **kwargs)
 
     def _get_message(self):
         message_list = []
@@ -161,7 +193,7 @@ class CompressorProfilingInfo(TimeDebugLogger):
     logger_name = 'profiling'
 
     def __init__(self, **kwargs):
-        TimeDebugLogger.__init__(self, logging.INFO, **kwargs)
+        TimeDebugLogger.__init__(self, **kwargs)
         self.index = 1
 
     def log(self):
