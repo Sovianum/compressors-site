@@ -21,6 +21,9 @@ import ast
 from enum import Enum
 import re
 from . import compressor_engine_handle
+import logging
+from .compressor_engine import engine_logging
+import traceback
 
 
 class FORM_CLASS(Enum):
@@ -270,23 +273,78 @@ class UpdateTask(django.views.generic.View):
 
 
 class SolveTask(django.views.generic.View):
-    SOLVER_FUNC = {
-        'mean_radius': lambda solver: solver.calculate_mean_radius,
-        'profiling': lambda solver: solver.do_profiling,
-        'both': lambda solver: lambda: [method() for method in (solver.calculate_mean_radius, solver.do_profiling)]
-    }
-
     def post(self, request, username, project_name, task_name):
-        user = models.User.objects.get(username=username)
-        project = models.Project.objects.get(user=user, name=project_name)
-        task = models.Task.objects.get(project=project, name=task_name)
-        solver = compressor_engine_handle.CompressorSolver(task)
+        if request.is_ajax():
+            user = models.User.objects.get(username=username)
+            project = models.Project.objects.get(user=user, name=project_name)
+            task = models.Task.objects.get(project=project, name=task_name)
+            calc_type = request.POST['calc_type']
+
+            try:
+                solver = compressor_engine_handle.CompressorSolver(task)
+                result_msg = self._calculate(solver, calc_type)
+            except compressor_engine_handle.OperationFailedError as e:
+                return django.http.HttpResponse('Task was not solved. %s' % (str(e),))
+
+
+            return django.http.HttpResponse(result_msg)
+        else:
+            raise django.http.BadHeaderError('This the AJAX only url')
+
+    @classmethod
+    def _get_solver_funcs(cls, key):
+        def get_func_pair(call_func, analyzer):
+            return (call_func, analyzer)
+
+        if key == 'mean_radius':
+            def call_func(solver):
+                return solver.calculate_mean_radius()
+
+            def analyzer(result):
+                if result:
+                    return 'Mean radius calculation successfully finished'
+                else:
+                    return 'Mean radius calculation failed'
+
+            return get_func_pair(call_func, analyzer)
+
+        elif key == 'profiling':
+
+            def call_func(solver):
+                return solver.do_profiling()
+
+            def analyzer(result):
+                if result:
+                    return 'Profiling successfully finished'
+                else:
+                    return 'Profiling failed'
+
+            return get_func_pair(call_func, analyzer)
+
+        elif key == 'both':
+
+            def call_func(solver):
+                return [method() for method in (solver.calculate_mean_radius, solver.do_profiling)]
+
+            def analyzer(result):
+                if result[0] and result[1]:
+                    return 'Both successfully finished'
+                elif result[0] and not result[1]:
+                    return 'Mean radius calculation successfully finished. Profiling failed'
+                else:
+                    return 'Both failed'
+
+            return get_func_pair(call_func, analyzer)
+
+        else:
+            raise RuntimeError('Invalid key')
 
     @classmethod
     def _calculate(cls, solver, calc_type):
-        cls.SOLVER_FUNC[calc_type](solver)()
+        call_func, analyzer = cls._get_solver_funcs(calc_type)
 
-
+        result_flags = call_func(solver)
+        return analyzer(result_flags)
 
 
 class DeleteTask(django.views.generic.View):

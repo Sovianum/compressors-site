@@ -2,6 +2,7 @@ import os
 import time
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 import re
 from enum import Enum
 from .compressor_engine import compressor_models
@@ -11,9 +12,15 @@ from .compressor_engine import compressor_stage_models
 from .compressor_engine import velocity_laws
 from .compressor_engine import profilers
 from .compressor_engine import engine_logging
+from .compressor_engine import geometry_results
+from .compressor_engine import post_processing
 from . import models
 import pickle
 import logging
+import sys
+import io
+import traceback
+import functools
 
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -36,6 +43,21 @@ class PROFILER_CLASS(Enum):
 
     rotor_trans_sound = profilers.TransSoundProfileRotorProfiler
     stator_trans_sound = profilers.TransSoundArcStatorProfiler
+
+
+class PROFILER_TYPE(Enum):
+    rotor = 'rotor_profiler'
+    stator = 'stator_profiler'
+
+
+class OperationFailedError(Exception):
+    def __init__(self, value):
+        self.parameter = value
+        self.traceback_ = functools.reduce(lambda x, y: x + y, traceback.format_list(traceback.extract_stack()), '')
+        engine_logging.SimpleDebugLogger.quick_custom_log(logging.ERROR, self.parameter)
+
+    def __str__(self):
+        return repr(self.parameter)
 
 
 class DataBlock:
@@ -93,9 +115,17 @@ class CompressorSolver:
     def __init__(self, task):
         self.task = task
 
-        self.main_data_block = MainDataBlock(models.MainDataPart.objects.get(task=task))
-        self.mean_radius_data_block = MeanRadiusDataBlock(models.MeanRadiusDataPart.objects.get(task=task))
-        self.profiling_data_block = ProfilingDataBlock(models.ProfilingDataPart.objects.get(task=task))
+        try:
+            self.main_data_block = MainDataBlock(models.MainDataPart.objects.get(task=task))
+        except models.MainDataPart.DoesNotExist as e:
+            self._no_data_block()
+
+        self.mean_radius_data_block = None
+
+        try:
+            self.profiling_data_block = ProfilingDataBlock(models.ProfilingDataPart.objects.get(task=task))
+        except models.ProfilingDataPart.DoesNotExist as e:
+            self.profiling_data_block = None
 
         self.mean_radius_dir = self.task.mean_radius_dir
         self.profiling_data_dir = self.task.profiling_dir
@@ -107,7 +137,7 @@ class CompressorSolver:
         self.profiling_file_template = self.profiling_file_prefix + '_%d.pkl'
 
     def do_profiling(self):
-        self._assert_profiling_ready()
+        self._try_profiling_ready()
 
         try:
             self._clean_data_dir(self.profiling_data_dir, self.profiling_file_prefix)
@@ -136,12 +166,14 @@ class CompressorSolver:
             self.task.profiling_ready = True
         else:
             self.task.profiling_ready = False
-            engine_logging.SimpleDebugLogger.quick_custom_log(logging.ERROR, 'Profiling called on empty directory')
+            raise OperationFailedError('Profiling called on empty directory')
 
         self.task.save()
 
+        return self.task.profiling_ready
+
     def calculate_mean_radius(self):
-        self._assert_mean_radius_ready()
+        self._try_mean_radius_ready()
 
         try:
             self._clean_data_dir(self.mean_radius_dir, self.mean_radius_file_prefix)
@@ -163,24 +195,35 @@ class CompressorSolver:
             self.task.mean_radius_ready = True
         else:
             self.task.mean_radius_ready = False
-            engine_logging.SimpleDebugLogger.quick_custom_log(logging.INFO, 'Valid solutions not found')
+            raise OperationFailedError('Valid solutions not found')
 
         self.task.save()
 
-    def _assert_mean_radius_ready(self):
-        result = True
-        result &= not (self.main_data_block is None)
-        result &= not (self.mean_radius_data_block is None)
+        return self.task.mean_radius_ready
 
-        assert result, 'Not enough data for mean_radius calculation'
+    def _no_data_block(self):
+        msg = 'Main data not set'
+        engine_logging.CaughtErrorsLogger.quick_custom_log(logging.ERROR, msg)
 
-    def _assert_profiling_ready(self):
-        result = True
-        result &= not (self.main_data_block is None)
-        result &= not (self.mean_radius_data_block is None)
-        result &= not (self.profiling_data_block is None)
+        raise OperationFailedError(msg)
 
-        assert result, 'Not enough data for mean_radius calculation'
+    def _try_mean_radius_ready(self):
+        try:
+            self.mean_radius_data_block = MeanRadiusDataBlock(models.MeanRadiusDataPart.objects.get(task=self.task))
+        except models.MeanRadiusDataPart.DoesNotExist:
+            msg = 'Mean radius data block not set'
+            engine_logging.CaughtErrorsLogger.quick_custom_log(logging.ERROR, msg)
+
+            raise OperationFailedError(msg)
+
+    def _try_profiling_ready(self):
+        try:
+            self.profiling_data_block = ProfilingDataBlock(models.ProfilingDataPart.objects.get(task=self.task))
+        except models.ProfilingDataPart.DoesNotExist:
+            msg = 'Profiling data block not set'
+            engine_logging.CaughtErrorsLogger.quick_custom_log(logging.ERROR, msg)
+
+            raise OperationFailedError(msg)
 
     @classmethod
     def _get_django_pickle_file(cls, object):
@@ -270,3 +313,74 @@ class CompressorSolver:
         compressor_template.set_p_stag_1(main_data_block.p_stag_1)
         return compressor_template
 
+
+class PlotProfileWidgetHandle:
+    def __init__(self, widget):
+        self.task = widget.task
+        self.project = self.task.project
+        self.analyzer, _ = models.Analyzer.objects.get_or_create(project=self.project)
+        self.widget = widget
+
+        self.compressor_df_path = self.task.get_profiling_paths()[0]
+        self.compressor = pd.read_pickle(self.compressor_df_path).compressor.values[0]
+
+        self.image_dir = self.widget._result_dir
+        self.image_prefix = '%(task)s__profile_plot__%(time)s'
+
+    @classmethod
+    def from_task(cls, task):
+        project = task.project
+        analyzer, _ = models.Analyzer.objects.get_or_create(project=project)
+        widget = models.PlotProfileWidget(task=task, analyzer=analyzer)
+
+        return cls(widget)
+
+    @classmethod
+    def from_widget(cls, widget):
+        return cls(widget)
+
+    def clear_dir(self):
+        if not self.widget.image_name:
+            return
+
+        file_names = os.listdir(self.image_dir)
+
+        for file_name in file_names:
+            if file_name == self.widget.image_name:
+                os.remove(os.path.join(self.image_dir, file_name))
+
+    def update_widget(self, stage_number, lattice_type, h_rel):
+        image_name = self._get_image_name()
+        image_path = os.path.join(self.image_dir, image_name)
+
+        self.clear_dir()
+        self._create_image(stage_number, lattice_type, h_rel)
+        self._save_image(image_path)
+
+        self.widget.stage_number = stage_number
+        self.widget.lattice_type = lattice_type
+        self.widget.h_rel = h_rel
+        self.widget.image_name = image_name
+
+        return self.widget
+
+    def _save_image(self, image_path):
+        stream = io.BytesIO()
+        plt.savefig(stream)
+
+        default_storage.save(image_path, ContentFile(stream.getvalue()))
+
+    def _create_image(self, stage_number, lattice_type, h_rel):
+        stage = self.compressor.stages[stage_number]
+        profiler = getattr(stage, PROFILER_TYPE[lattice_type].value)
+        profile = geometry_results.BladeProfile.from_profiler(profiler, h_rel)
+
+        post_processing.PostProcessor.plot_profile(profile)
+        plt.grid()
+
+    def _get_image_name(self):
+        prefix = self.image_prefix % {
+            'task': self.task.name,
+            'time': str(time.time())
+        }
+        return '%s.png' % prefix

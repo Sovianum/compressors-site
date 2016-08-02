@@ -5,6 +5,8 @@ from django.conf import settings
 import os
 import os.path
 import ast
+import itertools
+from . import compressor_engine_handle
 
 
 class ListField(models.TextField):
@@ -167,12 +169,164 @@ class ProfilingDataPart(DataPart):
     stator_blade_windage = ListField()
 
 
-class CalculationResult(models.Model):
-    name = models.FilePathField(path=os.path.join(settings.MEDIA_ROOT, 'gas_dynamics'), recursive=True)
+class Analyzer(models.Model):
+    project = models.OneToOneField(Project, on_delete=models.CASCADE)
+    widget_num = models.IntegerField(default=0)
 
-    task = models.OneToOneField(Task,
-                                on_delete=models.CASCADE,
-                                primary_key=True)
+    widget_set_names = None
+
+
+class AnalysisWidget(models.Model):
+    analyzer = models.ForeignKey(Analyzer, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, default='NoName')
+    position = models.IntegerField(unique=True)
+
+    HOLDER_CLASS = Analyzer
+
+    def __str__(self):
+        return '%(name)s: %(pos)d' % {
+            'name': self.name,
+            'pos': self.position
+        }
+
+    def remove(self):
+        assert self.position, 'Can not remove unsaved widget'
+
+        position = self.position
+        analyzer = self.analyzer
+        to_renumerate = self._get_widgets_gt_position(position, self.analyzer)
+        self.delete()
+
+        self._decrement_widgets(to_renumerate)
+
+        analyzer.widget_num -= 1
+        analyzer.save()
+
+    def insert(self, widget):
+        assert not self.position, 'Widget has been inserted already'
+
+        position = self.position + 1
+
+        to_renumerate = self._get_widgets_gt_position(position, self.analyzer)
+        self._increment_widgets(to_renumerate)
+
+        widget.position = position
+        widget.save()
+
+        self.analyzer.widget_num += 1
+        self.save()
+
+    def append(self):
+        assert not self.position, 'Widget has been inserted already'
+
+        self.position = self.analyzer.widget_num
+        self.save()
+
+        self.analyzer.widget_num += 1
+        self.analyzer.save()
+
+    @classmethod
+    def _increment_widgets(cls, widgets):
+        for widget in widgets:
+            widget.position += 1
+
+        for widget in widgets:
+            widget.save()
+
+    @classmethod
+    def _decrement_widgets(cls, widgets):
+        for widget in widgets:
+            widget.position -= 1
+
+        for widget in widgets:
+            widget.save()
+
+    @classmethod
+    def _get_widgets_gt_position(cls, position, analyzer):
+        """
+        :param position:
+        :return: all widgets: widget.position >= position
+        """
+
+        widget_set_names = cls._get_widget_set_names()
+        widget_sets = [getattr(analyzer, widget_set_name).filter(position__gt=position).all()
+                       for widget_set_name in widget_set_names]
+        widget_list = list(itertools.chain(*widget_sets))
+        return widget_list
+
+    @classmethod
+    def _get_widget_in_position(cls, position, analyzer):
+        widget_set_names = cls._get_widget_set_names()
+
+        for widget_set_name in widget_set_names:
+            widget_set = getattr(analyzer, widget_set_name).filter(position=position).all()
+
+            if widget_set:
+                assert len(widget_set) <= 1, 'Non unique position'
+                return widget_set[0]
+
+        raise compressor_engine_handle.OperationFailedError('Widget on specified position not found')
+
+    def _check_widget_position(self, position):
+        assert position >= 0, 'Position can not be negative'
+        assert position <= self.analyzer.widget_num, 'Max position is %(max)d. Tried to set %(try)d.' % {
+            'max': self.analyzer.widget_num,
+            'try': position
+        }
+
+    @classmethod
+    def _get_widget_set_names(cls):
+
+        if cls.HOLDER_CLASS.widget_set_names is None:
+            parent_class = AnalysisWidget
+            cls.HOLDER_CLASS.widget_set_names = cls._get_subclasses_derivative(parent_class,
+                                                                               lambda class_: class_.__name__.lower() + '_set')
+
+        return cls.HOLDER_CLASS.widget_set_names
+
+    @staticmethod
+    def _get_subclasses_derivative(class_, func):
+        def _get_subclasses(class_, subclass_set):
+            subclasses = class_.__subclasses__()
+
+            if not subclasses:
+                return subclass_set
+            else:
+                for subclass in subclasses:
+                    subclass_set.add(func(subclass))
+                    _get_subclasses(subclass, subclass_set)
+                return subclass_set
+
+        return _get_subclasses(class_, set())
+
+    @property
+    def _result_dir(self):
+        media_root = settings.MEDIA_ROOT
+        app_name = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
+        user = self.analyzer.project.user
+        project = self.analyzer.project
+
+        return os.path.join(media_root, app_name, user.username, project.name, 'analysis_files')
+
+    class Meta:
+        abstract = True
+
+
+class PlotProfileWidget(AnalysisWidget):
+    task = models.ForeignKey(to=Task, on_delete=models.CASCADE)
+    image_name = models.CharField(max_length=255, default='')
+
+    stage_number = models.IntegerField(default=0)
+    lattice_type = models.CharField(max_length=10, default='rotor')
+    h_rel = models.FloatField(default=0)
+
+
+class CompareCompressorsWidget(AnalysisWidget):
+    tasks = models.ManyToManyField(to=Task)
+
+
+
+    
 
 
 

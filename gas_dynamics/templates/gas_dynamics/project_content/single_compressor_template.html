@@ -1,5 +1,6 @@
 <div class="js-task-holder" data-delete-task="{% url 'gas_dynamics:delete_task' user.username project.name task.name %}"
-        data-get-value="{% url 'gas_dynamics:get_value' user.username project.name task.name%}">
+     data-solve-task="{% url 'gas_dynamics:solve_task' user.username project.name task.name %}"
+     data-get-value="{% url 'gas_dynamics:get_value' user.username project.name task.name%}">
 
     <div class="row">
         <div class="col-md-10">

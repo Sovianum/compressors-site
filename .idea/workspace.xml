@@ -2,53 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52de57d-1e17-47f2-9a74-3c27c0ba3328" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todo.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0002_auto_20160713_2204.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0003_auto_20160713_2249.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0004_auto_20160713_2250.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0005_auto_20160728_1411.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0006_auto_20160728_1413.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0007_auto_20160728_1416.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0008_auto_20160728_1421.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0009_auto_20160728_1421.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0010_auto_20160728_1421.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0011_auto_20160728_1424.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0012_auto_20160728_1424.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0013_auto_20160728_1440.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/chosen_compressor/compressor.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_1.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_2.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_3.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_4.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_5.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_6.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_7.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_8.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/mean_radius_calculation/file_9.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_1.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_2.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_3.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_4.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_5.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_6.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_7.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_8.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/profiled_gamma_constant/total/file_9.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/test_dir/mean_radius_file_1.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/results/test_dir/profiling_file_0.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/temp.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/temp1.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/web_handle.py" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/debug.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0002_auto_20160730_1400.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0003_auto_20160730_1545.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0004_auto_20160730_1547.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/artem.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/artem.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compressor_site/settings.py" afterPath="$PROJECT_DIR$/compressor_site/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/compressor_optimizer.py" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine/compressor_optimizer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/engine_logging.py" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine/engine_logging.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/post_processing.py" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine/post_processing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/data_extraction.py" afterPath="$PROJECT_DIR$/gas_dynamics/data_extraction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log.1" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log.1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py" afterPath="$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/gas_dynamics/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/models.py" afterPath="$PROJECT_DIR$/gas_dynamics/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general_links.html" afterPath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general_links.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/single_compressor_template.html" afterPath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/single_compressor_template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container.html" afterPath="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/urls.py" afterPath="$PROJECT_DIR$/gas_dynamics/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gas_dynamics/views.py" afterPath="$PROJECT_DIR$/gas_dynamics/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tester.py" afterPath="$PROJECT_DIR$/tester.py" />
     </list>
@@ -74,82 +43,60 @@
       <file leaf-file-name="tester.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="499">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#665#833#0" expanded="false" />
+                <element signature="e#865#1178#0" expanded="false" />
+                <element signature="e#1205#1814#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compressor_engine_handle.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compressor_engine_handle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1540">
-              <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+            <state relative-caret-position="477">
+              <caret line="316" column="30" selection-start-line="316" selection-start-column="30" selection-end-line="316" selection-end-column="30" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#611#886#0" expanded="false" />
-                <element signature="e#919#1027#0" expanded="false" />
-                <element signature="e#1062#1302#0" expanded="false" />
-                <element signature="e#1326#1477#0" expanded="false" />
-                <element signature="e#1516#1800#0" expanded="false" />
-                <element signature="e#1845#2501#0" expanded="false" />
-                <element signature="e#1892#2501#0" expanded="false" />
-                <element signature="e#2545#3798#0" expanded="false" />
-                <element signature="e#2595#3690#0" expanded="false" />
-                <element signature="e#3753#3798#0" expanded="false" />
-                <element signature="e#3863#4571#0" expanded="false" />
-                <element signature="e#4609#6232#0" expanded="false" />
-                <element signature="e#5377#5942#0" expanded="false" />
-                <element signature="e#6057#6206#0" expanded="false" />
-                <element signature="e#6279#7359#0" expanded="false" />
-                <element signature="e#7410#7606#0" expanded="false" />
-                <element signature="e#7655#7909#0" expanded="false" />
-                <element signature="e#7982#8022#0" expanded="false" />
-                <element signature="e#8102#8305#0" expanded="false" />
-                <element signature="e#8389#8765#0" expanded="false" />
-                <element signature="e#8859#9059#0" expanded="false" />
-                <element signature="e#9154#10151#0" expanded="false" />
-                <element signature="e#10271#11826#0" expanded="false" />
-                <element signature="e#11933#12252#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gas_dynamics/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#1031#1371#0" expanded="false" />
-                <element signature="e#1432#1477#0" expanded="false" />
-                <element signature="e#1525#2335#0" expanded="false" />
-                <element signature="e#2383#2485#0" expanded="false" />
-                <element signature="e#2542#2906#0" expanded="false" />
-                <element signature="e#2961#3536#0" expanded="false" />
-                <element signature="e#3588#4705#0" expanded="false" />
-                <element signature="e#4759#5231#0" expanded="false" />
-                <element signature="e#4896#5231#0" expanded="false" />
-                <element signature="e#5280#6752#0" expanded="false" />
-                <element signature="e#6666#6752#0" expanded="false" />
-                <element signature="e#6804#8786#0" expanded="false" />
-                <element signature="e#6872#7701#0" expanded="false" />
-                <element signature="e#7769#7939#0" expanded="false" />
-                <element signature="e#8023#8786#0" expanded="false" />
-                <element signature="e#10335#12299#0" expanded="false" />
-                <element signature="e#10402#10521#0" expanded="false" />
-                <element signature="e#10606#10943#0" expanded="false" />
-                <element signature="e#10779#10943#0" expanded="false" />
-                <element signature="e#11026#11367#0" expanded="false" />
-                <element signature="e#11438#12299#0" expanded="false" />
-                <element signature="e#12345#12723#0" expanded="false" />
-                <element signature="e#12756#13757#0" expanded="false" />
-                <element signature="e#13788#13931#0" expanded="false" />
+                <element signature="e#793#1068#0" expanded="false" />
+                <element signature="e#1101#1209#0" expanded="false" />
+                <element signature="e#1244#1484#0" expanded="false" />
+                <element signature="e#1518#1573#0" expanded="false" />
+                <element signature="e#1619#1942#0" expanded="false" />
+                <element signature="e#1966#2117#0" expanded="false" />
+                <element signature="e#2156#2440#0" expanded="false" />
+                <element signature="e#2485#3141#0" expanded="false" />
+                <element signature="e#2532#3141#0" expanded="false" />
+                <element signature="e#3185#4438#0" expanded="false" />
+                <element signature="e#3235#4330#0" expanded="false" />
+                <element signature="e#4393#4438#0" expanded="false" />
+                <element signature="e#4469#13492#0" expanded="false" />
+                <element signature="e#4503#5374#0" expanded="false" />
+                <element signature="e#5412#7036#0" expanded="false" />
+                <element signature="e#7083#8167#0" expanded="false" />
+                <element signature="e#8207#8352#0" expanded="false" />
+                <element signature="e#8400#8755#0" expanded="false" />
+                <element signature="e#8801#9149#0" expanded="false" />
+                <element signature="e#9222#9262#0" expanded="false" />
+                <element signature="e#9342#9545#0" expanded="false" />
+                <element signature="e#9629#10005#0" expanded="false" />
+                <element signature="e#10099#10299#0" expanded="false" />
+                <element signature="e#10394#11391#0" expanded="false" />
+                <element signature="e#11511#13066#0" expanded="false" />
+                <element signature="e#13173#13492#0" expanded="false" />
+                <element signature="e#13530#15845#0" expanded="false" />
+                <element signature="e#13566#14016#0" expanded="false" />
+                <element signature="e#14073#14272#0" expanded="false" />
+                <element signature="e#14333#14351#0" expanded="false" />
+                <element signature="e#14386#14641#0" expanded="false" />
+                <element signature="e#14715#15140#0" expanded="false" />
+                <element signature="e#15386#15658#0" expanded="false" />
+                <element signature="e#15699#15845#0" expanded="false" />
+                <marker date="1470175511524" expanded="false" signature="15180:15312" ph="..." />
               </folding>
             </state>
           </provider>
@@ -158,29 +105,63 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gas_dynamics/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="649">
+              <caret line="320" column="40" selection-start-line="320" selection-start-column="40" selection-end-line="320" selection-end-column="40" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#304#352#0" expanded="false" />
-                <element signature="e#431#870#0" expanded="false" />
-                <element signature="e#917#1482#0" expanded="false" />
-                <element signature="e#1518#1795#0" expanded="false" />
-                <element signature="e#1864#1907#0" expanded="false" />
-                <element signature="e#2231#2418#0" expanded="false" />
-                <element signature="e#2465#2660#0" expanded="false" />
-                <element signature="e#2715#2767#0" expanded="false" />
-                <element signature="e#2820#2870#0" expanded="false" />
-                <element signature="e#2921#3163#0" expanded="false" />
-                <element signature="e#3189#3253#0" expanded="false" />
-                <element signature="e#3287#3291#0" expanded="false" />
-                <element signature="e#3328#3564#0" expanded="false" />
-                <element signature="e#3355#3414#0" expanded="false" />
-                <element signature="e#3549#3564#0" expanded="false" />
-                <element signature="e#3601#3868#0" expanded="false" />
-                <element signature="e#3911#4439#0" expanded="false" />
-                <element signature="e#4481#4873#0" expanded="false" />
-                <element signature="e#4919#5165#0" expanded="false" />
+                <element signature="e#273#1538#0" expanded="false" />
+                <element signature="e#360#408#0" expanded="false" />
+                <element signature="e#487#926#0" expanded="false" />
+                <element signature="e#973#1538#0" expanded="false" />
+                <element signature="e#1574#1851#0" expanded="false" />
+                <element signature="e#1893#3309#0" expanded="false" />
+                <element signature="e#1920#1963#0" expanded="false" />
+                <element signature="e#2287#2474#0" expanded="false" />
+                <element signature="e#2521#2716#0" expanded="false" />
+                <element signature="e#2876#2926#0" expanded="false" />
+                <element signature="e#3245#3309#0" expanded="false" />
+                <element signature="e#3343#3347#0" expanded="false" />
+                <element signature="e#3384#3620#0" expanded="false" />
+                <element signature="e#3411#3470#0" expanded="false" />
+                <element signature="e#3605#3620#0" expanded="false" />
+                <element signature="e#3657#3924#0" expanded="false" />
+                <element signature="e#3967#4495#0" expanded="false" />
+                <element signature="e#4537#4929#0" expanded="false" />
+                <element signature="e#4966#5108#0" expanded="false" />
+                <element signature="e#5151#9418#0" expanded="false" />
+                <element signature="e#5387#5491#0" expanded="false" />
+                <element signature="e#5523#5850#0" expanded="false" />
+                <element signature="e#5890#6232#0" expanded="false" />
+                <element signature="e#6264#6462#0" expanded="false" />
+                <element signature="e#6531#6644#0" expanded="false" />
+                <element signature="e#6713#6826#0" expanded="false" />
+                <element signature="e#6912#7309#0" expanded="false" />
+                <element signature="e#7394#7817#0" expanded="false" />
+                <element signature="e#7875#8116#0" expanded="false" />
+                <element signature="e#8180#8538#0" expanded="false" />
+                <element signature="e#8616#9033#0" expanded="false" />
+                <element signature="e#9084#9377#0" expanded="false" />
+                <element signature="e#9403#9418#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="geometry_results.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/geometry_results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1380">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="e#1239#2302#0" expanded="false" />
+                <element signature="e#2353#2383#0" expanded="false" />
+                <element signature="e#2434#2464#0" expanded="false" />
+                <element signature="e#2499#2541#0" expanded="false" />
+                <element signature="e#2583#2878#0" expanded="false" />
+                <element signature="e#2924#3989#0" expanded="false" />
+                <element signature="e#4035#4188#0" expanded="false" />
+                <element signature="e#4234#4267#0" expanded="false" />
+                <element signature="e#4322#4496#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -202,8 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/temp.html" />
-        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/navbar.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/css/plot_page.css" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/plot_holder.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/plot_page.js" />
@@ -214,14 +193,11 @@
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general/add_element_modal.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general/delete_element_modal.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/loaders.js" />
-        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container_template.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/templatetags/gas_dynamics/project_content_extras.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/inclusion_tags/form_value_setter.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/templatetags/project_content_extras.py" />
-        <option value="$PROJECT_DIR$/gas_dynamics/urls.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/temp.py" />
-        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/single_compressor_template.html" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/main_parameters.html" />
         <option value="$PROJECT_DIR$/temp_db.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/profiling_parameters.html" />
@@ -236,7 +212,6 @@
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/logging.conf" />
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/logging_temp.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/start_functions.py" />
-        <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log" />
         <option value="$PROJECT_DIR$/todo.txt" />
         <option value="$PROJECT_DIR$/gas_dynamics/data_extraction.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/test_os.py" />
@@ -247,12 +222,18 @@
         <option value="$PROJECT_DIR$/gen_test.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/compressor_optimizer.py" />
         <option value="$PROJECT_DIR$/os_test.py" />
-        <option value="$PROJECT_DIR$/tester.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/engine_logging.py" />
         <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/post_processing.py" />
-        <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py" />
-        <option value="$PROJECT_DIR$/gas_dynamics/models.py" />
+        <option value="$PROJECT_DIR$/gas_dynamics/urls.py" />
+        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general_links.html" />
+        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container.html" />
+        <option value="$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/single_compressor_template.html" />
+        <option value="$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/debug.js" />
+        <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log" />
         <option value="$PROJECT_DIR$/gas_dynamics/views.py" />
+        <option value="$PROJECT_DIR$/gas_dynamics/models.py" />
+        <option value="$PROJECT_DIR$/tester.py" />
+        <option value="$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py" />
       </list>
     </option>
   </component>
@@ -287,8 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,18 +296,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gas_dynamics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gas_dynamics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gas_dynamics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compressor_engine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -597,26 +622,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="2568" height="1396" extended-state="7" />
+    <frame x="-4" y="-4" width="2568" height="1396" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20126782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23454833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26101413" sideWeight="0.50633913" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3647746" sideWeight="0.4984152" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16861436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4081803" sideWeight="0.4984152" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34390652" sideWeight="0.49366087" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3305509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3305509" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2445743" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29799667" sideWeight="0.49366087" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32804674" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32053423" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -635,92 +660,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="82" />
+      <option name="time" value="89" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/project_content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="388" column="4" selection-start-line="388" selection-start-column="4" selection-end-line="388" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/mean_radius_parameters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="135" column="72" selection-start-line="135" selection-start-column="72" selection-end-line="135" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/engine.log" />
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug.log.3" />
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug.log" />
-    <entry file="file:///usr/lib/python3.5/logging/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="641" column="0" selection-start-line="641" selection-start-column="0" selection-end-line="641" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/blade_strength.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/compressor_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="82" column="7" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/compressor_stage_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="131" column="7" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/gases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/geometry_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logging_temp.py" />
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/materials.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -740,13 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/profilers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -819,13 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/results/test_dir/profiling_file_0.pkl" />
     <entry file="file://$PROJECT_DIR$/gen_test.py" />
     <entry file="file://$PROJECT_DIR$/media/gas_dynamics/User/Project/initialized_task/mean_radius/mean_radius_file_0.pkl" />
@@ -851,137 +781,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tester.py">
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general_page_template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/engine_logging.py">
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/empty_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log">
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/general_links.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        <state relative-caret-position="448">
+          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/profiling_parameters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/main_parameters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="21" column="78" selection-start-line="21" selection-start-column="75" selection-end-line="21" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/task_container.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/project_content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/templates/gas_dynamics/project_content/single_compressor_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" column="91" selection-start-line="1" selection-start-column="91" selection-end-line="1" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log.1">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3202">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/static/gas_dynamics/js/debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/engine_logging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1169">
+          <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="818">
+          <caret line="343" column="8" selection-start-line="343" selection-start-column="8" selection-end-line="343" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
+            <element signature="e#1109#1449#0" expanded="false" />
+            <element signature="e#1510#1555#0" expanded="false" />
+            <element signature="e#1603#2413#0" expanded="false" />
+            <element signature="e#2461#2563#0" expanded="false" />
+            <element signature="e#2620#2984#0" expanded="false" />
+            <element signature="e#3039#3614#0" expanded="false" />
+            <element signature="e#3666#4783#0" expanded="false" />
+            <element signature="e#4837#5309#0" expanded="false" />
+            <element signature="e#4974#5309#0" expanded="false" />
+            <element signature="e#5358#6830#0" expanded="false" />
+            <element signature="e#6744#6830#0" expanded="false" />
+            <element signature="e#6882#8864#0" expanded="false" />
+            <element signature="e#7847#8017#0" expanded="false" />
+            <element signature="e#8101#8864#0" expanded="false" />
+            <element signature="e#9791#11251#0" expanded="false" />
+            <element signature="e#9918#10268#0" expanded="false" />
+            <element signature="e#10316#10629#0" expanded="false" />
+            <element signature="e#10672#11190#0" expanded="false" />
+            <element signature="e#10711#10794#0" expanded="false" />
+            <element signature="e#10846#11135#0" expanded="false" />
+            <element signature="e#11508#12197#0" expanded="false" />
+            <element signature="e#12248#14212#0" expanded="false" />
+            <element signature="e#12315#12434#0" expanded="false" />
+            <element signature="e#12519#12856#0" expanded="false" />
+            <element signature="e#12692#12856#0" expanded="false" />
+            <element signature="e#12939#13280#0" expanded="false" />
+            <element signature="e#13351#14212#0" expanded="false" />
+            <element signature="e#14258#14636#0" expanded="false" />
+            <element signature="e#14669#15670#0" expanded="false" />
+            <element signature="e#15701#15844#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/logs/debug_logs/debug.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/post_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2230">
+        <state relative-caret-position="6330">
           <caret line="529" column="0" selection-start-line="529" selection-start-column="0" selection-end-line="529" selection-end-column="0" />
+          <folding>
+            <element signature="e#2727#11832#0" expanded="false" />
+            <element signature="e#11891#12279#0" expanded="false" />
+            <element signature="e#12346#12677#0" expanded="false" />
+            <element signature="e#12762#12935#0" expanded="false" />
+            <element signature="e#13042#13660#0" expanded="false" />
+            <element signature="e#13739#13836#0" expanded="false" />
+            <element signature="e#13914#13993#0" expanded="false" />
+            <element signature="e#14084#14430#0" expanded="false" />
+            <element signature="e#14520#14865#0" expanded="false" />
+            <element signature="e#14967#15350#0" expanded="false" />
+            <element signature="e#15448#15889#0" expanded="false" />
+            <element signature="e#15991#16273#0" expanded="false" />
+            <element signature="e#16413#16737#0" expanded="false" />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/profilers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/geometry_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#1239#2302#0" expanded="false" />
+            <element signature="e#2353#2383#0" expanded="false" />
+            <element signature="e#2434#2464#0" expanded="false" />
+            <element signature="e#2499#2541#0" expanded="false" />
+            <element signature="e#2583#2878#0" expanded="false" />
+            <element signature="e#2924#3989#0" expanded="false" />
+            <element signature="e#4035#4188#0" expanded="false" />
+            <element signature="e#4234#4267#0" expanded="false" />
+            <element signature="e#4322#4496#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/gas_dynamics/User/Project/analysis_files/initialized_task__profile_plot__1470170098.9674215.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/gas_dynamics/User/Project/analysis_files/initialized_task__profile_plot__1470172293.238726.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/gas_dynamics/User/Project/analysis_files/initialized_task__profile_plot__1470173210.9988203.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="649">
+          <caret line="320" column="40" selection-start-line="320" selection-start-column="40" selection-end-line="320" selection-end-column="40" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#304#352#0" expanded="false" />
-            <element signature="e#431#870#0" expanded="false" />
-            <element signature="e#917#1482#0" expanded="false" />
-            <element signature="e#1518#1795#0" expanded="false" />
-            <element signature="e#1864#1907#0" expanded="false" />
-            <element signature="e#2231#2418#0" expanded="false" />
-            <element signature="e#2465#2660#0" expanded="false" />
-            <element signature="e#2715#2767#0" expanded="false" />
-            <element signature="e#2820#2870#0" expanded="false" />
-            <element signature="e#2921#3163#0" expanded="false" />
-            <element signature="e#3189#3253#0" expanded="false" />
-            <element signature="e#3287#3291#0" expanded="false" />
-            <element signature="e#3328#3564#0" expanded="false" />
-            <element signature="e#3355#3414#0" expanded="false" />
-            <element signature="e#3549#3564#0" expanded="false" />
-            <element signature="e#3601#3868#0" expanded="false" />
-            <element signature="e#3911#4439#0" expanded="false" />
-            <element signature="e#4481#4873#0" expanded="false" />
-            <element signature="e#4919#5165#0" expanded="false" />
+            <element signature="e#273#1538#0" expanded="false" />
+            <element signature="e#360#408#0" expanded="false" />
+            <element signature="e#487#926#0" expanded="false" />
+            <element signature="e#973#1538#0" expanded="false" />
+            <element signature="e#1574#1851#0" expanded="false" />
+            <element signature="e#1893#3309#0" expanded="false" />
+            <element signature="e#1920#1963#0" expanded="false" />
+            <element signature="e#2287#2474#0" expanded="false" />
+            <element signature="e#2521#2716#0" expanded="false" />
+            <element signature="e#2876#2926#0" expanded="false" />
+            <element signature="e#3245#3309#0" expanded="false" />
+            <element signature="e#3343#3347#0" expanded="false" />
+            <element signature="e#3384#3620#0" expanded="false" />
+            <element signature="e#3411#3470#0" expanded="false" />
+            <element signature="e#3605#3620#0" expanded="false" />
+            <element signature="e#3657#3924#0" expanded="false" />
+            <element signature="e#3967#4495#0" expanded="false" />
+            <element signature="e#4537#4929#0" expanded="false" />
+            <element signature="e#4966#5108#0" expanded="false" />
+            <element signature="e#5151#9418#0" expanded="false" />
+            <element signature="e#5387#5491#0" expanded="false" />
+            <element signature="e#5523#5850#0" expanded="false" />
+            <element signature="e#5890#6232#0" expanded="false" />
+            <element signature="e#6264#6462#0" expanded="false" />
+            <element signature="e#6531#6644#0" expanded="false" />
+            <element signature="e#6713#6826#0" expanded="false" />
+            <element signature="e#6912#7309#0" expanded="false" />
+            <element signature="e#7394#7817#0" expanded="false" />
+            <element signature="e#7875#8116#0" expanded="false" />
+            <element signature="e#8180#8538#0" expanded="false" />
+            <element signature="e#8616#9033#0" expanded="false" />
+            <element signature="e#9084#9377#0" expanded="false" />
+            <element signature="e#9403#9418#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#665#833#0" expanded="false" />
+            <element signature="e#865#1178#0" expanded="false" />
+            <element signature="e#1205#1814#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gas_dynamics/compressor_engine_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+        <state relative-caret-position="477">
+          <caret line="316" column="30" selection-start-line="316" selection-start-column="30" selection-end-line="316" selection-end-column="30" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#611#886#0" expanded="false" />
-            <element signature="e#919#1027#0" expanded="false" />
-            <element signature="e#1062#1302#0" expanded="false" />
-            <element signature="e#1326#1477#0" expanded="false" />
-            <element signature="e#1516#1800#0" expanded="false" />
-            <element signature="e#1845#2501#0" expanded="false" />
-            <element signature="e#1892#2501#0" expanded="false" />
-            <element signature="e#2545#3798#0" expanded="false" />
-            <element signature="e#2595#3690#0" expanded="false" />
-            <element signature="e#3753#3798#0" expanded="false" />
-            <element signature="e#3863#4571#0" expanded="false" />
-            <element signature="e#4609#6232#0" expanded="false" />
-            <element signature="e#5377#5942#0" expanded="false" />
-            <element signature="e#6057#6206#0" expanded="false" />
-            <element signature="e#6279#7359#0" expanded="false" />
-            <element signature="e#7410#7606#0" expanded="false" />
-            <element signature="e#7655#7909#0" expanded="false" />
-            <element signature="e#7982#8022#0" expanded="false" />
-            <element signature="e#8102#8305#0" expanded="false" />
-            <element signature="e#8389#8765#0" expanded="false" />
-            <element signature="e#8859#9059#0" expanded="false" />
-            <element signature="e#9154#10151#0" expanded="false" />
-            <element signature="e#10271#11826#0" expanded="false" />
-            <element signature="e#11933#12252#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gas_dynamics/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#1031#1371#0" expanded="false" />
-            <element signature="e#1432#1477#0" expanded="false" />
-            <element signature="e#1525#2335#0" expanded="false" />
-            <element signature="e#2383#2485#0" expanded="false" />
-            <element signature="e#2542#2906#0" expanded="false" />
-            <element signature="e#2961#3536#0" expanded="false" />
-            <element signature="e#3588#4705#0" expanded="false" />
-            <element signature="e#4759#5231#0" expanded="false" />
-            <element signature="e#4896#5231#0" expanded="false" />
-            <element signature="e#5280#6752#0" expanded="false" />
-            <element signature="e#6666#6752#0" expanded="false" />
-            <element signature="e#6804#8786#0" expanded="false" />
-            <element signature="e#6872#7701#0" expanded="false" />
-            <element signature="e#7769#7939#0" expanded="false" />
-            <element signature="e#8023#8786#0" expanded="false" />
-            <element signature="e#10335#12299#0" expanded="false" />
-            <element signature="e#10402#10521#0" expanded="false" />
-            <element signature="e#10606#10943#0" expanded="false" />
-            <element signature="e#10779#10943#0" expanded="false" />
-            <element signature="e#11026#11367#0" expanded="false" />
-            <element signature="e#11438#12299#0" expanded="false" />
-            <element signature="e#12345#12723#0" expanded="false" />
-            <element signature="e#12756#13757#0" expanded="false" />
-            <element signature="e#13788#13931#0" expanded="false" />
+            <element signature="e#793#1068#0" expanded="false" />
+            <element signature="e#1101#1209#0" expanded="false" />
+            <element signature="e#1244#1484#0" expanded="false" />
+            <element signature="e#1518#1573#0" expanded="false" />
+            <element signature="e#1619#1942#0" expanded="false" />
+            <element signature="e#1966#2117#0" expanded="false" />
+            <element signature="e#2156#2440#0" expanded="false" />
+            <element signature="e#2485#3141#0" expanded="false" />
+            <element signature="e#2532#3141#0" expanded="false" />
+            <element signature="e#3185#4438#0" expanded="false" />
+            <element signature="e#3235#4330#0" expanded="false" />
+            <element signature="e#4393#4438#0" expanded="false" />
+            <element signature="e#4469#13492#0" expanded="false" />
+            <element signature="e#4503#5374#0" expanded="false" />
+            <element signature="e#5412#7036#0" expanded="false" />
+            <element signature="e#7083#8167#0" expanded="false" />
+            <element signature="e#8207#8352#0" expanded="false" />
+            <element signature="e#8400#8755#0" expanded="false" />
+            <element signature="e#8801#9149#0" expanded="false" />
+            <element signature="e#9222#9262#0" expanded="false" />
+            <element signature="e#9342#9545#0" expanded="false" />
+            <element signature="e#9629#10005#0" expanded="false" />
+            <element signature="e#10099#10299#0" expanded="false" />
+            <element signature="e#10394#11391#0" expanded="false" />
+            <element signature="e#11511#13066#0" expanded="false" />
+            <element signature="e#13173#13492#0" expanded="false" />
+            <element signature="e#13530#15845#0" expanded="false" />
+            <element signature="e#13566#14016#0" expanded="false" />
+            <element signature="e#14073#14272#0" expanded="false" />
+            <element signature="e#14333#14351#0" expanded="false" />
+            <element signature="e#14386#14641#0" expanded="false" />
+            <element signature="e#14715#15140#0" expanded="false" />
+            <element signature="e#15386#15658#0" expanded="false" />
+            <element signature="e#15699#15845#0" expanded="false" />
+            <marker date="1470175511524" expanded="false" signature="15180:15312" ph="..." />
           </folding>
         </state>
       </provider>

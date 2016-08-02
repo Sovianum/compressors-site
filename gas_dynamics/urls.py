@@ -20,6 +20,8 @@ urlpatterns = [
         views.DeleteTask.as_view(), name='delete_task'),
     url(r'^(?P<username>[0-9A-Za-z_]+)/projects/(?P<project_name>[0-9A-Za-z_]+)/tasks/update/(?P<task_name>[0-9A-Za-z_]+)/$',
         views.UpdateTask.as_view(), name='update_task'),
+    url(r'^(?P<username>[0-9A-Za-z_]+)/projects/(?P<project_name>[0-9A-Za-z_]+)/tasks/solve/(?P<task_name>[0-9A-Za-z_]+)/$',
+        views.SolveTask.as_view(), name='solve_task'),
     url(r'^(?P<username>[0-9A-Za-z_]+)/projects/(?P<project_name>[0-9A-Za-z_]+)/tasks/(?P<task_name>[0-9A-Za-z_]+)/get_value/$',
         views.GetValue.as_view(), name='get_value'),
 
