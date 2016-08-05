@@ -8,6 +8,7 @@ import io
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
+import enum
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "compressor_site.settings")
 django.setup()
@@ -26,6 +27,9 @@ from gas_dynamics.compressor_engine import geometry_results
 
 def test_tasker():
     full_task = models.Task.objects.get(name='initialized_task')
+    print(models.MeanRadiusDataPart.objects.get(task=full_task).u_out_1)
+
+    print(full_task.kind)
 
     tasker = CompressorSolver(full_task)
     
@@ -79,12 +83,10 @@ def test_plot_image():
     widget = h.update_widget(0, 'rotor', 0)
     h.clear_dir()
 
-
-
-test_plot_image()
+#test_plot_image()
 
 #test_compressor()
-#test_tasker()
+test_tasker()
 #print(pd.read_pickle(os.path.join(data_dir, 'profiling_file_0.pkl')))
 #test_widgets()
 #clear_widgets()

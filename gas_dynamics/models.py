@@ -62,6 +62,16 @@ class Project(models.Model):
 
 
 class TaskPrototype(models.Model):
+    class TASK_KIND:
+        unset = 'unset'
+        single = 'single'
+        multi = 'multi'
+
+    class TASK_STATE:
+        unset = 'unset'
+        mean_radius = 'mean_radius'
+        profiled = 'profiled'
+
     def __str__(self):
         return self.project.name + ': ' + self.name
 
@@ -69,34 +79,8 @@ class TaskPrototype(models.Model):
     name = models.CharField(max_length=200)
     is_single = models.BooleanField(default=True)
 
-    mean_radius_ready = models.BooleanField(default=False)
-    profiling_ready = models.BooleanField(default=False)
-
-    def get_profiling_paths(self):
-        assert self.profiling_ready, 'Profiling calculation has not been performed yet'
-
-        return [os.path.join(self.profiling_dir, filename) for filename in os.listdir(self.profiling_dir)]
-
-    def get_mean_radius_paths(self):
-        assert self.mean_radius_ready, 'Mean radius calculation has not been performed yet'
-
-        return [os.path.join(self.mean_radius_dir, filename) for filename in os.listdir(self.mean_radius_dir)]
-
-    @property
-    def mean_radius_dir(self):
-        return os.path.join(self._result_dir, 'mean_radius')
-
-    @property
-    def profiling_dir(self):
-        return os.path.join(self._result_dir, 'profiling')
-
-    @property
-    def _result_dir(self):
-        media_root = settings.MEDIA_ROOT
-        app_name = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
-        user = self.project.user
-
-        return os.path.join(media_root, app_name, user.username, self.project.name, self.name)
+    kind = models.CharField(max_length=30, default=TASK_KIND.unset)
+    state = models.CharField(max_length=30, default=TASK_STATE.unset)
 
     class Meta:
         unique_together = (('project', 'name'),)
@@ -113,6 +97,9 @@ class DataPart(models.Model):
 
     task = models.OneToOneField(Task, on_delete=models.CASCADE)
     state = models.CharField(max_length=50)
+
+    def get_task_kind(self):
+        return Task.TASK_KIND.single
 
     class Meta:
         abstract = True
@@ -151,6 +138,41 @@ class MeanRadiusDataPart(DataPart):
     inlet_alpha = ListField(blank=True, default=[90])
     flow_section_type = ListField()
 
+    def get_task_kind(self):
+        field_names = [
+            'u_out_1', 'd_rel_1',
+            'H_t_rel_first', 'H_t_rel_last', 'H_t_rel_max', 'H_t_rel_max_coord',
+            'eta_ad_first', 'eta_ad_last', 'eta_ad_max', 'eta_ad_max_coord',
+            'c_a_rel_first', 'c_a_rel_last',
+            'reactivity_first', 'reactivity_last',
+            'inlet_alpha'
+        ]
+
+        def to_list(value): #TODO Разобраться, почему в некоторых случаях не работет ListField: возвращает строку вместо списка
+            '''
+                This function is a workaround of the problem with a ListField.
+                While updating task it in some cases returns a string instead of a list.
+                The reason is unknown
+            '''
+            if not value:
+                value = []
+
+            if isinstance(value, list):
+                return value
+            if isinstance(value, str):
+                result = ast.literal_eval(value)
+
+                if isinstance(result, list):
+                    return result
+                elif isinstance(result, int) or isinstance(result, float):
+                    return [result]
+            raise ValueError('Inappropriate value type: %s (%s)' % (value, type(value)))
+
+        for name in field_names:
+            if len(to_list(getattr(self, name))) > 1:
+                return Task.TASK_KIND.multi
+        return Task.TASK_KIND.single
+
 
 class ProfilingDataPart(DataPart):
     rotor_velocity_law = ListField()
@@ -167,6 +189,51 @@ class ProfilingDataPart(DataPart):
 
     rotor_blade_windage = ListField()
     stator_blade_windage = ListField()
+
+
+class Result(models.Model):
+    name = models.CharField(max_length=200)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    task = models.OneToOneField(Task, on_delete=models.CASCADE, null=True)
+
+    kind = models.CharField(max_length=30, default=Task.TASK_KIND.unset)
+    state = models.CharField(max_length=30, default=Task.TASK_STATE.unset)
+
+    @classmethod
+    def from_task(cls, task: Task):
+        return cls(
+            name=task.name,
+            project=task.project,
+            task=task,
+            kind=task.kind,
+            state=task.state
+        )
+
+    def get_profiling_paths(self):
+        assert self.profiling_ready, 'Profiling calculation has not been performed yet'
+
+        return [os.path.join(self.profiling_dir, filename) for filename in os.listdir(self.profiling_dir)]
+
+    def get_mean_radius_paths(self):
+        assert self.mean_radius_ready, 'Mean radius calculation has not been performed yet'
+
+        return [os.path.join(self.mean_radius_dir, filename) for filename in os.listdir(self.mean_radius_dir)]
+
+    @property
+    def mean_radius_dir(self):
+        return os.path.join(self._result_dir, 'mean_radius')
+
+    @property
+    def profiling_dir(self):
+        return os.path.join(self._result_dir, 'profiling')
+
+    @property
+    def _result_dir(self):
+        media_root = settings.MEDIA_ROOT
+        app_name = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
+        user = self.project.user
+
+        return os.path.join(media_root, app_name, user.username, self.project.name, self.name)
 
 
 class Analyzer(models.Model):
@@ -321,7 +388,7 @@ class PlotProfileWidget(AnalysisWidget):
     h_rel = models.FloatField(default=0)
 
 
-class CompareCompressorsWidget(AnalysisWidget):
+class ComparingWidget(AnalysisWidget):
     tasks = models.ManyToManyField(to=Task)
 
 

@@ -24,6 +24,7 @@ from . import compressor_engine_handle
 import logging
 from .compressor_engine import engine_logging
 import traceback
+import pdb
 
 
 class FORM_CLASS(Enum):
@@ -226,6 +227,7 @@ class UpdateTask(django.views.generic.View):
             task = models.Task.objects.get(project=project, name=task_name)
             task_dict = json.loads(request.POST['data'])
 
+            self._reset_task_kind(task)
             process_results = dict()
             for form_type in task_dict:
                 data = {
@@ -235,33 +237,29 @@ class UpdateTask(django.views.generic.View):
                     'content': json.loads(task_dict[form_type])
                 }
 
-                process_results[form_type] = self._process_wrapper(request, data, form_type)
+                process_results[form_type] = self._process_wrapper(request, task, data, form_type)
 
             return django.http.JsonResponse(process_results)
         else:
             raise django.http.BadHeaderError('This the AJAX only url')
 
-    def _process_wrapper(self, request, data, form_type):
+    def _process_wrapper(self, request, task, data, form_type):
         form_class = FORM_CLASS[form_type].value
         model_class = MODEL_CLASS[form_type].value
-        return self._process_form_data(request, data, form_class, model_class)
+        return self._process_form_data(request, task, data, form_class, model_class)
 
-    def _process_form_data(self, request, data, form_class, model_class):
+    def _process_form_data(self, request, task, data, form_class, model_class):
         form = form_class(data['content'])
         result = dict()
 
-        for key in data['content']:
-            print('%s: %s (%s)' % (key, data['content'][key], type(data['content'][key])))
-
         if form.is_valid():
             model, is_created = model_class.objects.get_or_create(task=data['task'], defaults=form.cleaned_data)
-            print(hasattr(model, 'flow_section_type'))
-            print('\n\n\n')
 
             for key in form.cleaned_data:
                 setattr(model, key, form.cleaned_data[key])
 
             model.save()
+            self._set_task_kind(task, model.get_task_kind())
 
             result['messages'] = 'Data block saved'
             result['errors'] = ''
@@ -270,6 +268,25 @@ class UpdateTask(django.views.generic.View):
             result['errors'] = form.errors
 
         return result
+
+    @classmethod
+    def _set_task_kind(cls, task, new_kind):
+        priority = {
+            models.Task.TASK_KIND.multi: 10,
+            models.Task.TASK_KIND.single: 0,
+            models.Task.TASK_KIND.unset: -10,
+        }
+
+        if priority[new_kind] > priority[task.kind]:
+            task.kind = new_kind
+            task.save()
+
+    @classmethod
+    def _reset_task_kind(cls, task):
+        task.kind = models.Task.TASK_KIND.unset
+        task.save()
+
+
 
 
 class SolveTask(django.views.generic.View):

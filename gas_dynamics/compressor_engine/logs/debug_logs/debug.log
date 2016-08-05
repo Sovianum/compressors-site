@@ -5,3 +5,68 @@
 2016-08-02 20:58:25,947__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
 2016-08-02 21:11:07,615__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
 2016-08-02 21:11:07,615__profiling__DEBUG__engine_logging.py__98__Time took: 0.0089
+2016-08-05 09:49:55,880__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:49:55,880__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 09:50:16,085__caught_errors__ERROR__engine_logging.py__95__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/mean_radius'
+2016-08-05 09:50:16,152__caught_errors__ERROR__engine_logging.py__95__[Errno 2] No such file or directory: '/home/artem/Documents/PyCharm/compressor_site/media/gas_dynamics/User/Project/initialized_task/profiling'
+2016-08-05 09:50:16,160__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:50:16,160__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 09:52:18,294__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:52:18,295__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 09:52:20,433__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:52:20,433__profiling__DEBUG__engine_logging.py__98__Time took: 0.0080
+2016-08-05 09:52:23,042__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:52:23,042__profiling__DEBUG__engine_logging.py__98__Time took: 0.0079
+2016-08-05 09:53:36,795__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:53:36,795__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 09:53:40,276__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:53:40,276__profiling__DEBUG__engine_logging.py__98__Time took: 0.0080
+2016-08-05 09:56:09,593__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 09:56:09,594__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 10:34:04,734__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 10:34:04,734__profiling__DEBUG__engine_logging.py__98__Time took: 0.0103
+2016-08-05 10:37:31,199__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 10:37:31,199__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 10:38:46,820__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 10:38:46,820__profiling__DEBUG__engine_logging.py__98__Time took: 0.0119
+2016-08-05 10:49:41,142__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 10:49:41,142__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 11:31:05,806__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:31:05,806__profiling__DEBUG__engine_logging.py__98__Time took: 0.0075
+2016-08-05 11:31:46,145__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:31:46,146__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 11:38:31,820__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:38:31,820__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 11:48:37,488__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:48:37,488__profiling__DEBUG__engine_logging.py__98__Time took: 0.0118
+2016-08-05 11:52:57,201__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:52:57,202__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 11:59:16,267__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 11:59:16,267__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 12:08:34,679__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:08:34,679__profiling__DEBUG__engine_logging.py__98__Time took: 0.0085
+2016-08-05 12:08:39,622__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:08:39,622__profiling__DEBUG__engine_logging.py__98__Time took: 0.0075
+2016-08-05 12:09:07,699__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:09:07,700__profiling__DEBUG__engine_logging.py__98__Time took: 0.0079
+2016-08-05 12:11:22,330__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:11:22,330__profiling__DEBUG__engine_logging.py__98__Time took: 0.0076
+2016-08-05 12:12:34,921__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:12:34,922__profiling__DEBUG__engine_logging.py__98__Time took: 0.0090
+2016-08-05 12:12:40,094__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:12:40,094__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:14:24,324__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:14:24,324__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:14:32,066__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:14:32,066__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:21:02,651__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:21:02,651__profiling__DEBUG__engine_logging.py__98__Time took: 0.0078
+2016-08-05 12:21:06,294__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:21:06,294__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:21:23,554__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:21:23,554__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:21:46,868__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:21:46,868__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077
+2016-08-05 12:22:43,780__default_logger__ERROR__engine_logging.py__109__Valid solutions not found
+2016-08-05 12:23:01,661__profiling__DEBUG__engine_logging.py__98__Profiled 1 of 1.
+2016-08-05 12:23:01,661__profiling__DEBUG__engine_logging.py__98__Time took: 0.0077

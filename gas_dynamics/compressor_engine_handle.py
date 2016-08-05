@@ -116,6 +116,12 @@ class CompressorSolver:
         self.task = task
 
         try:
+            self.result = task.result
+        except models.Result.DoesNotExist:
+            self.result = models.Result.from_task(task)
+            self.result.save()
+
+        try:
             self.main_data_block = MainDataBlock(models.MainDataPart.objects.get(task=task))
         except models.MainDataPart.DoesNotExist as e:
             self._no_data_block()
@@ -127,8 +133,8 @@ class CompressorSolver:
         except models.ProfilingDataPart.DoesNotExist as e:
             self.profiling_data_block = None
 
-        self.mean_radius_dir = self.task.mean_radius_dir
-        self.profiling_data_dir = self.task.profiling_dir
+        self.mean_radius_dir = self.result.mean_radius_dir
+        self.profiling_data_dir = self.result.profiling_dir
 
         self.mean_radius_file_prefix = 'mean_radius_file'
         self.profiling_file_prefix = 'profiling_file'
@@ -163,14 +169,14 @@ class CompressorSolver:
             profiling_info_logger.finish()
 
         if len(input_data_path_list) > 0:
-            self.task.profiling_ready = True
+            self.task.state = models.Task.TASK_STATE.profiled
         else:
-            self.task.profiling_ready = False
             raise OperationFailedError('Profiling called on empty directory')
 
         self.task.save()
+        self._update_result()
 
-        return self.task.profiling_ready
+        return self.task.state == models.Task.TASK_STATE.profiled
 
     def calculate_mean_radius(self):
         self._try_mean_radius_ready()
@@ -192,14 +198,20 @@ class CompressorSolver:
             file_index += 1
 
         if file_index:
-            self.task.mean_radius_ready = True
+            self.task.state = models.Task.TASK_STATE.mean_radius
         else:
-            self.task.mean_radius_ready = False
+            self.task.state = models.Task.TASK_STATE.unset
             raise OperationFailedError('Valid solutions not found')
 
         self.task.save()
+        self._update_result()
 
-        return self.task.mean_radius_ready
+        return self.task.state == models.Task.TASK_STATE.mean_radius
+
+    def _update_result(self):
+        self.result.state = self.task.state
+        self.result.kind = self.task.kind
+        self.result.save()
 
     def _no_data_block(self):
         msg = 'Main data not set'
